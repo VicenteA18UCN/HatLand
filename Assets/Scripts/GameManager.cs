@@ -27,6 +27,13 @@ public class GameManager : MonoBehaviour
          return; 
     }
 
+    public void OnClickStoreButton()
+    {
+        LevelManager.LoadStore();
+    }
 
-    
+    public void OnClickGoToMenu()
+    {
+        LevelManager.LoadMenu();
+    }
 }

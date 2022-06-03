@@ -10,4 +10,14 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
     }
+
+    public static void LoadStore()
+    {
+        SceneManager.LoadScene("Store", LoadSceneMode.Single);
+    }
+
+       public static void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
 }
