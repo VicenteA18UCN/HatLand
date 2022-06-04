@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Platform
   - BackGround
+  - Enemy
+  - Coin
+  - Potion
+  - CoinText
+  - LifeText
+  - NextLevel
   layers:
   - Default
   - TransparentFX

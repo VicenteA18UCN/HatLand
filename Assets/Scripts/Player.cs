@@ -8,8 +8,9 @@ public class Player : MonoBehaviour
     private float jumpForce;
     private bool isJumping;
     private Animator animator;
+    [SerializeField] private bool isDead;
     private SpriteRenderer spriteRenderer;
-
+   
     [SerializeField] private Rigidbody2D playerRigidBody;
 
     private void OnEnable()
@@ -36,6 +37,15 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         this.PlayerMovements();
+        this.PauseMenu();
+    }
+
+    void PauseMenu()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            LevelManager.LoadPause();
+        }
     }
 
     void PlayerMovements()
@@ -84,6 +94,17 @@ public class Player : MonoBehaviour
             this.isJumping = false;
             animator.SetBool("isJump",false);
         }
+
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            print("Enemy");
+            this.isDead=true;
+        }
+
+        if(other.gameObject.CompareTag("NextLevel"))
+        {
+            LevelManager.LoadNextNivel();
+        }
     }
     
     private void OnCollisionExit2D(Collision2D other)
@@ -93,5 +114,15 @@ public class Player : MonoBehaviour
             this.isJumping = true;
             animator.SetBool("isJump",true);
         }
+    }
+
+    public bool GetPlayerStatus()
+    {
+        return this.isDead;
+    }
+
+    public void ResetPlayerStatus()
+    {
+        this.isDead = false;
     }
 }
