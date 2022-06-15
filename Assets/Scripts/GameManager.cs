@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
             if(livesLeft ==0)
             {
                 this.RestartGame();
+                LevelManager.LoadDeathMenu();
             }
             
         }
@@ -71,15 +72,16 @@ public class GameManager : MonoBehaviour
     {
         this.player.GetComponent<Player>().ResetPlayerStatus();
         this.player.SetActive(false);
-        this.player.transform.position = this.initialPlayerPosition;
         this.RestartCoins();
         this.RestartPotions();
+        this.initialPlayerPosition = this.player.transform.position;
         this.coinsAccumulator = 0;
         this.UpdateDeathCanvas(3);
         this.UpdateCoinsCanvas(this.coinsAccumulator);
         this.player.SetActive(true);
         this.livesLeft = 3;
-        
+        PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
+        PlayerPrefs.SetInt("Lives",this.livesLeft);
     }
 
     private void UpdateDeathCanvas(int amount)

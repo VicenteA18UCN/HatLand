@@ -39,4 +39,9 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene"));
     }
+
+    public static void LoadDeathMenu()
+    {
+        SceneManager.LoadScene("DeathMenu");
+    }
 }
