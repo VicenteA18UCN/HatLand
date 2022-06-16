@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI  lifeText;
     
-
     private void OnEnable()
     {
         if(!PlayerPrefs.HasKey("Coins"))

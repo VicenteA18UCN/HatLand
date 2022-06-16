@@ -30,13 +30,4 @@ public class MenuManager : MonoBehaviour
     {
         LevelManager.LoadStore();
     }
-
-    public void OnClickGoToMenu()
-    {
-        LevelManager.LoadMenu();
-    }
-
-    public void OnClickContinue(){
-        LevelManager.ReturnGame();
-    }
 }

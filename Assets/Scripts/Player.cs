@@ -37,15 +37,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         this.PlayerMovements();
-        this.PauseMenu();
-    }
-
-    void PauseMenu()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            LevelManager.LoadPause();
-        }
     }
 
     void PlayerMovements()
@@ -93,6 +84,7 @@ public class Player : MonoBehaviour
         {
             this.isJumping = false;
             animator.SetBool("isJump",false);
+            animator.SetBool("isWalk",true);
         }
 
         if(other.gameObject.CompareTag("Enemy"))

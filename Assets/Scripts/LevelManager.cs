@@ -22,26 +22,15 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Store", LoadSceneMode.Single);
     }
 
-       public static void LoadMenu()
-    {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-    }
-
-
-    public static void LoadPause()
-    {
-        PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene("MenuPause", LoadSceneMode.Single);
-    }
-
-
-    public static void ReturnGame()
-    {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene"));
-    }
-
     public static void LoadDeathMenu()
     {
         SceneManager.LoadScene("DeathMenu");
     }
+
+    public static void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    
 }
