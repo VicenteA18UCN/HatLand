@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] coins;
     [SerializeField] GameObject[] potions;
     private Vector3 initialPlayerPosition;
+    private Vector3 actualPlayerPosition;
     private int livesLeft;
     private int coinsAccumulator;
 
@@ -41,21 +42,25 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        this.initialPlayerPosition= this.player.transform.position;
+        this.initialPlayerPosition = this.player.transform.position;
+        this.actualPlayerPosition = this.player.transform.position;
     }
 
-    private void Update() {
-        
-        PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
-        PlayerPrefs.SetInt("Lives",this.livesLeft);
-        print(this.coinsAccumulator+"CoinsAccumulator");
+    private void Update() 
+    {
+
         this.UpdateDeathCanvas(livesLeft);
         this.CoinObserver();
         this.PotionObserver();
+        if(player.GetComponent<Player>().GetSaveGame())
+        {
+            SaveGame();
+            player.GetComponent<Player>().SetSaveGame(false);
+        }
         if(player.GetComponent<Player>().GetPlayerStatus())        
         {
             this.livesLeft--;
-            this.player.transform.position = this.initialPlayerPosition;
+            this.player.transform.position = this.actualPlayerPosition;
             player.GetComponent<Player>().ResetPlayerStatus();
             this.UpdateDeathCanvas(this.livesLeft);
             if(livesLeft ==0)
@@ -74,13 +79,7 @@ public class GameManager : MonoBehaviour
         this.RestartCoins();
         this.RestartPotions();
         this.initialPlayerPosition = this.player.transform.position;
-        this.coinsAccumulator = 0;
-        this.UpdateDeathCanvas(3);
-        this.UpdateCoinsCanvas(this.coinsAccumulator);
         this.player.SetActive(true);
-        this.livesLeft = 3;
-        PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
-        PlayerPrefs.SetInt("Lives",this.livesLeft);
     }
 
     private void UpdateDeathCanvas(int amount)
@@ -163,6 +162,10 @@ public class GameManager : MonoBehaviour
          return; 
     }
 
-    
-    
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
+        PlayerPrefs.SetInt("Lives", this.livesLeft);
+        this.actualPlayerPosition = this.player.transform.position;
+    }
 }

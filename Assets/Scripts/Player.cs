@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     private bool isJumping;
     private Animator animator;
     [SerializeField] private bool isDead;
+    [SerializeField] private bool saveGame;
     private SpriteRenderer spriteRenderer;
    
     [SerializeField] private Rigidbody2D playerRigidBody;
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             playerRigidBody.AddForce(new Vector3 (0,jumpForce,0),ForceMode2D.Impulse);
+            isJumping=true;
         }
     }
 
@@ -89,13 +92,17 @@ public class Player : MonoBehaviour
 
         if(other.gameObject.CompareTag("Enemy"))
         {
-            print("Enemy");
             this.isDead=true;
         }
 
         if(other.gameObject.CompareTag("NextLevel"))
         {
+            saveGame = true;
             LevelManager.LoadNextNivel();
+        }
+        if(other.gameObject.CompareTag("Checkpoint"))
+        {
+            saveGame = true;
         }
     }
     
@@ -117,4 +124,10 @@ public class Player : MonoBehaviour
     {
         this.isDead = false;
     }
+
+    public bool GetSaveGame(){return this.saveGame;}
+
+    public void SetSaveGame(bool saveGame){this.saveGame = saveGame;}
+
+
 }
