@@ -12,9 +12,9 @@ public class VerticalPlatform : MonoBehaviour
         effector = GetComponent<PlatformEffector2D>();
     }
 
-    void Update() 
+    void FixedUpdate() 
     {
-        if(Input.GetKey(KeyCode.DownArrow))
+        if(Input.GetKey(KeyCode.S))
         {
              effector.rotationalOffset = 180f;
         }

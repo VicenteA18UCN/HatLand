@@ -30,4 +30,11 @@ public class MenuManager : MonoBehaviour
     {
         LevelManager.LoadStore();
     }
+
+    public void OnClickDeathButton()
+    {
+        
+        LevelManager.LoadMenu();
+
+    }
 }

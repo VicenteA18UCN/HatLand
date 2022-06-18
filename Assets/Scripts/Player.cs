@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
 
     void PlayerMovements()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.D))
         {
             transform.Translate(playerVelocity,0,0);
             spriteRenderer.flipX = false;
         }
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.A))
         {
             transform.Translate(-playerVelocity,0,0);
             spriteRenderer.flipX = true;
@@ -71,11 +71,11 @@ public class Player : MonoBehaviour
             animator.SetBool("isWalk",false);
             return;
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
         {
             animator.SetBool("isWalk",true);
         }
-        if(!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+        if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isWalk",false);
         }

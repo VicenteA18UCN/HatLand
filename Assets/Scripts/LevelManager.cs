@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
     public static void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+        PlayerPrefs.SetInt("Coins",0);
+        PlayerPrefs.SetInt("Lives",3);
     }
 
     

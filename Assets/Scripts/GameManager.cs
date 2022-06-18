@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
             this.UpdateDeathCanvas(this.livesLeft);
             if(livesLeft ==0)
             {
-                this.RestartGame();
                 LevelManager.LoadDeathMenu();
             }
             
@@ -103,7 +102,7 @@ public class GameManager : MonoBehaviour
         }
         this.coinsAccumulator = 0;
         this.UpdateCoinsCanvas(0);
-        PlayerPrefs.SetInt("Coin",0);
+        PlayerPrefs.SetInt("Coins",0);
     }
 
     private void CoinObserver()
