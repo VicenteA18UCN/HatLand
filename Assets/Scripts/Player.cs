@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isDead;
     [SerializeField] private bool saveGame;
     private SpriteRenderer spriteRenderer;
-   
     [SerializeField] private Rigidbody2D playerRigidBody;
 
     private void OnEnable()
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         this.playerVelocity = 0.1f;
-        this.jumpForce = 8.5f;
+        this.jumpForce = 7.5f;
         this.isJumping = false;
     }
 
@@ -34,6 +33,7 @@ public class Player : MonoBehaviour
     {
         this.PlayerAnimations();
         this.PlayerJump();
+        this.Gliding();
     }
 
     void FixedUpdate()
@@ -60,10 +60,9 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             playerRigidBody.AddForce(new Vector3 (0,jumpForce,0),ForceMode2D.Impulse);
-            isJumping=true;
+            isJumping = true;
         }
     }
-
     void PlayerAnimations()
     {
         if(this.isJumping)
@@ -78,6 +77,15 @@ public class Player : MonoBehaviour
         if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isWalk",false);
+        }
+    }
+
+    void Gliding()
+    {
+        if(Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            Vector2 force = Vector2.up * 0.38f;
+            playerRigidBody.AddForceAtPosition(force, transform.position);
         }
     }
 

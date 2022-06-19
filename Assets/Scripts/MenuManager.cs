@@ -37,4 +37,9 @@ public class MenuManager : MonoBehaviour
         LevelManager.LoadMenu();
 
     }
+
+    public void OnClickBackMenu()
+    {
+        LevelManager.BackMenu();
+    }
 }
