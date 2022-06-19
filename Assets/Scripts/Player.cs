@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool saveGame;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D playerRigidBody;
+    private bool canGlide;
 
     private void OnEnable()
     {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         this.playerVelocity = 0.1f;
         this.jumpForce = 7.5f;
         this.isJumping = false;
+        this.canGlide = false;
     }
 
     // Update is called one per frame
@@ -82,11 +84,19 @@ public class Player : MonoBehaviour
 
     void Gliding()
     {
-        if(Input.GetKey(KeyCode.Space) && isJumping)
+        if(canGlide){ 
+            if(Input.GetKey(KeyCode.Space) && isJumping)
         {
-            Vector2 force = Vector2.up * 0.38f;
+            Vector2 force = Vector2.up * 0.39f;
             playerRigidBody.AddForceAtPosition(force, transform.position);
         }
+        }
+
+    }
+
+    void CanGlide()
+    {
+        this.canGlide = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -94,6 +104,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Platform"))
         {
             this.isJumping = false;
+            this.canGlide = false;
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
         }
@@ -120,6 +131,7 @@ public class Player : MonoBehaviour
         {
             this.isJumping = true;
             animator.SetBool("isJump",true);
+            Invoke(nameof(CanGlide),0.9f);
         }
     }
 
