@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject[] coins;
     [SerializeField] GameObject[] potions;
+    [SerializeField] GameObject[] feathers;
     private Vector3 initialPlayerPosition;
     private Vector3 actualPlayerPosition;
     private int livesLeft;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         this.player = GameObject.FindGameObjectWithTag("Player");
         this.coins = GameObject.FindGameObjectsWithTag("Coin");
         this.potions = GameObject.FindGameObjectsWithTag("Potion");
+        this.feathers = GameObject.FindGameObjectsWithTag("Feather");
         this.lifeText.text = livesLeft.ToString();
         this.coinText.text = coinsAccumulator.ToString();
         return;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         this.UpdateDeathCanvas(livesLeft);
         this.CoinObserver();
         this.PotionObserver();
+        this.FeatherObserver();
         if(player.GetComponent<Player>().GetSaveGame())
         {
             SaveGame();
@@ -146,6 +149,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void FeatherObserver()
+    {
+        for (int i = 0; i < feathers.Length; i++)
+        {
+            if (this.feathers[i].GetComponent<Feather>().GetStatus())
+            {
+                feathers[i].GetComponent<Feather>().ResetStatus();
+                this.feathers[i].SetActive(false);
+                player.GetComponent<Player>().StartPowerFeather();
+                Invoke(nameof(CallStopPowerFeather),10f);
+            }
+        }
+    }
+
+    public void CallStopPowerFeather()
+    {
+        player.GetComponent<Player>().StopPowerFeather();
+    }
     public void OnMouseOverNoButton()
     {
         return;

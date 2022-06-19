@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D playerRigidBody;
     private bool canGlide;
+    private bool powerFeather;
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         this.playerVelocity = 0.1f;
-        this.jumpForce = 7.5f;
+        this.jumpForce = 8.2f;
         this.isJumping = false;
         this.canGlide = false;
     }
@@ -84,11 +85,13 @@ public class Player : MonoBehaviour
 
     void Gliding()
     {
-        if(canGlide){ 
+        if(powerFeather){
+            if(canGlide){ 
             if(Input.GetKey(KeyCode.Space) && isJumping)
         {
             Vector2 force = Vector2.up * 0.39f;
             playerRigidBody.AddForceAtPosition(force, transform.position);
+        }
         }
         }
 
@@ -99,6 +102,15 @@ public class Player : MonoBehaviour
         this.canGlide = true;
     }
 
+    public void StopPowerFeather()
+    {
+        this.powerFeather = false;
+    }
+
+    public void StartPowerFeather()
+    {
+        this.powerFeather = true;
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Platform"))
@@ -131,10 +143,12 @@ public class Player : MonoBehaviour
         {
             this.isJumping = true;
             animator.SetBool("isJump",true);
-            Invoke(nameof(CanGlide),0.9f);
+            if(powerFeather)
+            {
+                Invoke(nameof(CanGlide),0.9f);
+            }
         }
     }
-
     public bool GetPlayerStatus()
     {
         return this.isDead;
@@ -148,6 +162,5 @@ public class Player : MonoBehaviour
     public bool GetSaveGame(){return this.saveGame;}
 
     public void SetSaveGame(bool saveGame){this.saveGame = saveGame;}
-
 
 }

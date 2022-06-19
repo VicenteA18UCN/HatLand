@@ -12,6 +12,9 @@ TagManager:
   - CoinText
   - LifeText
   - NextLevel
+  - Checkpoint
+  - GameManager
+  - Feather
   layers:
   - Default
   - TransparentFX
