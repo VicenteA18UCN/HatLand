@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] TextMeshProUGUI  lifeText;
     private bool timeDown;
-    
     private void OnEnable()
     {
         if(!PlayerPrefs.HasKey("Coins"))
@@ -190,8 +189,6 @@ public class GameManager : MonoBehaviour
                 this.timeDown = true;
                 player.GetComponent<Player>().StartPowerFeather();
                 Invoke(nameof(CallStopPowerFeather),10f);
-
-
             }
         }
     }
