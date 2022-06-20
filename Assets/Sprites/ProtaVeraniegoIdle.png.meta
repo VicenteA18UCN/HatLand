@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 749329c2eff138b4897eb5e0fa1defba
+guid: 31956795a2ed2f74eb52acd727f76053
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21422100661394743
-    second: Animaciones_0
+      213: 2715719823863611306
+    second: ProtaVeraniegoIdle_0
   - first:
-      213: -4483018032989684759
-    second: Animaciones_1
+      213: 6357094313906999640
+    second: ProtaVeraniegoIdle_1
   - first:
-      213: -7180837035388974812
-    second: Animaciones_2
+      213: -5832807143572076781
+    second: ProtaVeraniegoIdle_2
   - first:
-      213: -3495193109399057808
-    second: Animaciones_3
+      213: 139961470325309533
+    second: ProtaVeraniegoIdle_3
   - first:
-      213: 2015966074446640408
-    second: Animaciones_4
+      213: -4726295397989662360
+    second: ProtaVeraniegoIdle_4
   - first:
-      213: 6554846042018453948
-    second: Animaciones_5
+      213: 5467988721026734733
+    second: ProtaVeraniegoIdle_5
+  - first:
+      213: 3367534444783608325
+    second: ProtaVeraniegoIdle_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animaciones_0
+      name: ProtaVeraniegoIdle_0
       rect:
         serializedVersion: 2
         x: 22
@@ -123,18 +126,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73dd34c794b1c4000800000000000000
-      internalID: 21422100661394743
+      spriteID: aaf70e29acc20b520800000000000000
+      internalID: 2715719823863611306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_1
+      name: ProtaVeraniegoIdle_1
       rect:
         serializedVersion: 2
         x: 86
-        y: 148
+        y: 147
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8511510e89fe83850800000000000000
+      internalID: 6357094313906999640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProtaVeraniegoIdle_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 147
         width: 20
         height: 32
       alignment: 0
@@ -144,19 +168,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ebbafdd9de19c1c0800000000000000
-      internalID: -4483018032989684759
+      spriteID: 31786047ec4bd0fa0800000000000000
+      internalID: -5832807143572076781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_2
+      name: ProtaVeraniegoIdle_3
       rect:
         serializedVersion: 2
         x: 22
         y: 83
-        width: 21
+        width: 20
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 429cba313ca885c90800000000000000
-      internalID: -7180837035388974812
+      spriteID: d504bf8373e31f100800000000000000
+      internalID: 139961470325309533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_3
+      name: ProtaVeraniegoIdle_4
       rect:
         serializedVersion: 2
         x: 86
@@ -186,18 +210,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a40e4a2649e7fc0800000000000000
-      internalID: -3495193109399057808
+      spriteID: 86143436063d86eb0800000000000000
+      internalID: -4726295397989662360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_4
+      name: ProtaVeraniegoIdle_5
       rect:
         serializedVersion: 2
-        x: 22
-        y: 20
+        x: 150
+        y: 83
         width: 20
         height: 32
       alignment: 0
@@ -207,17 +231,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81571a2b6762afb10800000000000000
-      internalID: 2015966074446640408
+      spriteID: d8a14a865c232eb40800000000000000
+      internalID: 5467988721026734733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_5
+      name: ProtaVeraniegoIdle_6
       rect:
         serializedVersion: 2
-        x: 86
+        x: 22
         y: 19
         width: 20
         height: 32
@@ -228,8 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb992e30fbd77fa50800000000000000
-      internalID: 6554846042018453948
+      spriteID: 502283e4cb2ebbe20800000000000000
+      internalID: 3367534444783608325
       vertices: []
       indices: 
       edges: []

@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 749329c2eff138b4897eb5e0fa1defba
+guid: b1519ba5aa39e4e4b8cc254e147a1593
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21422100661394743
-    second: Animaciones_0
+      213: -3335585800018451406
+    second: ProtaRightWalkVERANIEGO_0
   - first:
-      213: -4483018032989684759
-    second: Animaciones_1
+      213: -7188910582520231427
+    second: ProtaRightWalkVERANIEGO_1
   - first:
-      213: -7180837035388974812
-    second: Animaciones_2
+      213: 902989485204295970
+    second: ProtaRightWalkVERANIEGO_2
   - first:
-      213: -3495193109399057808
-    second: Animaciones_3
+      213: 3180704139562171172
+    second: ProtaRightWalkVERANIEGO_3
   - first:
-      213: 2015966074446640408
-    second: Animaciones_4
+      213: 2323065194897226552
+    second: ProtaRightWalkVERANIEGO_4
   - first:
-      213: 6554846042018453948
-    second: Animaciones_5
+      213: 9001527838152682577
+    second: ProtaRightWalkVERANIEGO_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animaciones_0
+      name: ProtaRightWalkVERANIEGO_0
       rect:
         serializedVersion: 2
         x: 22
         y: 147
-        width: 20
+        width: 21
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -123,14 +123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73dd34c794b1c4000800000000000000
-      internalID: 21422100661394743
+      spriteID: 2342018336e95b1d0800000000000000
+      internalID: -3335585800018451406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_1
+      name: ProtaRightWalkVERANIEGO_1
       rect:
         serializedVersion: 2
         x: 86
@@ -144,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ebbafdd9de19c1c0800000000000000
-      internalID: -4483018032989684759
+      spriteID: df9c5d6e9ebdb3c90800000000000000
+      internalID: -7188910582520231427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_2
+      name: ProtaRightWalkVERANIEGO_2
       rect:
         serializedVersion: 2
         x: 22
@@ -165,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 429cba313ca885c90800000000000000
-      internalID: -7180837035388974812
+      spriteID: 221d38d0720188c00800000000000000
+      internalID: 902989485204295970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_3
+      name: ProtaRightWalkVERANIEGO_3
       rect:
         serializedVersion: 2
         x: 86
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a40e4a2649e7fc0800000000000000
-      internalID: -3495193109399057808
+      spriteID: 42bb7361091242c20800000000000000
+      internalID: 3180704139562171172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_4
+      name: ProtaRightWalkVERANIEGO_4
       rect:
         serializedVersion: 2
         x: 22
@@ -207,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81571a2b6762afb10800000000000000
-      internalID: 2015966074446640408
+      spriteID: 83b3ce39c7f2d3020800000000000000
+      internalID: 2323065194897226552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animaciones_5
+      name: ProtaRightWalkVERANIEGO_5
       rect:
         serializedVersion: 2
         x: 86
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb992e30fbd77fa50800000000000000
-      internalID: 6554846042018453948
+      spriteID: 15c61ec60e9dbec70800000000000000
+      internalID: 9001527838152682577
       vertices: []
       indices: 
       edges: []
