@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         this.player.SetActive(false);
         this.RestartCoins();
         this.RestartPotions();
+        this.RestartFeather();
         this.initialPlayerPosition = this.player.transform.position;
         this.player.SetActive(true);
     }
@@ -169,6 +170,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RestartFeather()
+    {
+        for (int i = 0; i < feathers.Length; i++)
+        {
+            this.feathers[i].GetComponent<Feather>().ResetStatus();
+            this.feathers[i].SetActive(true);
+        }
+    }
     private void FeatherObserver()
     {
         for (int i = 0; i < feathers.Length; i++)
