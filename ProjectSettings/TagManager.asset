@@ -15,6 +15,7 @@ TagManager:
   - Checkpoint
   - GameManager
   - Feather
+  - Particles
   layers:
   - Default
   - TransparentFX

@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     private Vector3 actualPlayerPosition;
     private int livesLeft;
     private int coinsAccumulator;
-
+    float currentTime = 0f;
+    float startingTime = 10f;
+    [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] TextMeshProUGUI coinText;
-
     [SerializeField] TextMeshProUGUI  lifeText;
+    private bool timeDown;
     
     private void OnEnable()
     {
@@ -39,6 +41,8 @@ public class GameManager : MonoBehaviour
         this.feathers = GameObject.FindGameObjectsWithTag("Feather");
         this.lifeText.text = livesLeft.ToString();
         this.coinText.text = coinsAccumulator.ToString();
+        this.countdownText.text = "";
+        this.currentTime = startingTime;
         return;
     }
 
@@ -72,6 +76,10 @@ public class GameManager : MonoBehaviour
             }
             
         }
+        if(timeDown)
+        {
+            this.UpdateTimeCanvas();
+        }
     }
 
     public void RestartGame()
@@ -94,6 +102,19 @@ public class GameManager : MonoBehaviour
     {
         coinsAccumulator = amount;
         this.coinText.text = coinsAccumulator.ToString();
+    }
+
+    private void UpdateTimeCanvas()
+    {
+        currentTime -= 1 * Time.deltaTime;
+        countdownText.text = currentTime.ToString("0");
+
+        if (currentTime <= 0)
+        {
+            this.countdownText.text = "";
+            currentTime = startingTime;
+            this.timeDown = false;
+        }
     }
 
     private void RestartCoins()
@@ -144,7 +165,6 @@ public class GameManager : MonoBehaviour
                 this. potions[i].SetActive(false);
                 this.livesLeft++;
                 PlayerPrefs.SetInt("Lives",this.livesLeft);
-
             } 
         }
     }
@@ -157,8 +177,12 @@ public class GameManager : MonoBehaviour
             {
                 feathers[i].GetComponent<Feather>().ResetStatus();
                 this.feathers[i].SetActive(false);
+                this.currentTime = this.startingTime;
+                this.timeDown = true;
                 player.GetComponent<Player>().StartPowerFeather();
                 Invoke(nameof(CallStopPowerFeather),10f);
+
+
             }
         }
     }
