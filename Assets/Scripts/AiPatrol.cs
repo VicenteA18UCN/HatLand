@@ -15,8 +15,16 @@ public class AiPatrol : MonoBehaviour
     [SerializeField] private float distanceToPlayer;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject Proyectile;
+    private float xCollision;
+    private bool flipOff;
+    private Animator animator;
     private bool mustFlip;
     private bool Attacking;
+
+    void OnEnable()
+    {
+        this.animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +47,21 @@ public class AiPatrol : MonoBehaviour
         {
             if(player.position.x > transform.position.x && transform.localScale.x < 0 || player.position.x < transform.position.x && transform.localScale.x > 0)
             {
-                Flip();
-                chaseSpeed *= -1;
+                if(!flipOff)
+                {
+                    if(player.position.x > transform.position.x && enemySpeed < 0)
+                    {   
+                        Flip();
+                    }
+                    else if(player.position.x < transform.position.x && enemySpeed > 0)
+                    {
+                        Flip();
+                    }
+                }
             }
             
             mustPatrol = false;
-            rigidBody.velocity = Vector2.zero;
+            mustFlip=false;
             StartCoroutine(Attack());
         }else
         {
@@ -71,20 +88,58 @@ public class AiPatrol : MonoBehaviour
 
     void Flip()
     {
-        mustPatrol = false;
-        transform.localScale = new Vector2(transform.localScale.x*-1,transform.localScale.y);
-        enemySpeed *= -1;
-        mustPatrol = true;
+        if(!flipOff)
+        {
+            mustPatrol = false;
+            transform.localScale = new Vector2(transform.localScale.x*-1,transform.localScale.y);
+            enemySpeed *= -1;
+            chaseSpeed *= -1;
+            mustPatrol = true;
+        }
+        
     }
 
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(timeBetweenAttack);
-        Attacking = true;
-        rigidBody.velocity = new Vector2(chaseSpeed*Time.fixedDeltaTime, rigidBody.velocity.y);
-        if(mustFlip || bodyCollider.IsTouchingLayers(wallLayer))
+        if(!flipOff)
+        {
+            Attacking = true;
+            rigidBody.velocity = new Vector2(chaseSpeed*Time.fixedDeltaTime, rigidBody.velocity.y);
+            if((!Physics2D.OverlapCircle(groundCheckPosition.position, 0.1f,groundLayer)) || bodyCollider.IsTouchingLayers(wallLayer))
+            {
+                rigidBody.velocity = Vector2.zero;
+                
+            }
+        }
+        else
         {
             rigidBody.velocity = Vector2.zero;
         }
+        
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            flipOff = true;
+            xCollision = player.position.x;
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            flipOff = false;
+            if(player.position.x > xCollision && enemySpeed < 0)
+            {
+                Flip();
+            }
+            else if(player.position.x < xCollision && enemySpeed > 0)
+            {
+                Flip();
+            }
+
+        }        
     }
 }

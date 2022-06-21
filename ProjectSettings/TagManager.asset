@@ -16,6 +16,7 @@ TagManager:
   - GameManager
   - Feather
   - Particles
+  - UnderPlayer
   layers:
   - Default
   - TransparentFX
