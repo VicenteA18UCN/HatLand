@@ -662,7 +662,7 @@ MonoBehaviour:
   m_AssetsPPU: 100
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
-  m_UpscaleRT: 0
+  m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
@@ -1466,7 +1466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 292209752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feathers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4474,7 +4474,7 @@ GameObject:
   - component: {fileID: 1028598236}
   - component: {fileID: 1028598235}
   - component: {fileID: 1028598234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feather
   m_TagString: Feather
   m_Icon: {fileID: 0}
@@ -5260,7 +5260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -94, y: -85}
+  m_AnchoredPosition: {x: -82, y: -1003}
   m_SizeDelta: {x: 136, y: 135.01746}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247354812
@@ -12118,7 +12118,7 @@ GameObject:
   - component: {fileID: 1517608706}
   - component: {fileID: 1517608708}
   - component: {fileID: 1517608709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feather
   m_TagString: Feather
   m_Icon: {fileID: 0}
@@ -46196,7 +46196,7 @@ GameObject:
   - component: {fileID: 1646797650}
   - component: {fileID: 1646797649}
   - component: {fileID: 1646797648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feather
   m_TagString: Feather
   m_Icon: {fileID: 0}
