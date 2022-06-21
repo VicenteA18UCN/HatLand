@@ -7,12 +7,13 @@ public class PauseManager : MonoBehaviour
 {
 
     public static bool isGamePaused = false;
-
+    public static bool isSettings = false;
     [SerializeField] GameObject pauseMenuUI;
 
+    [SerializeField] GameObject pauseOption;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape) && !isSettings){
 
             if(isGamePaused){
             
@@ -23,6 +24,7 @@ public class PauseManager : MonoBehaviour
                 PauseGame();
             }
         }
+
     }
 
     public void ResumeGame()
@@ -43,5 +45,19 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+    }
+
+    public void OnClickMenuOption()
+    {
+        pauseMenuUI.SetActive(false);
+        pauseOption.SetActive(true);
+        isSettings = true;
+    }
+
+    public void OnClickBack()
+    {
+        pauseOption.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        isSettings = false;
     }
 }
