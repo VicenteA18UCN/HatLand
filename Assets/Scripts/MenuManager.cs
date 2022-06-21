@@ -42,4 +42,14 @@ public class MenuManager : MonoBehaviour
     {
         LevelManager.BackMenu();
     }
+
+    public void OnClickSettings()
+    {
+        LevelManager.SettingMenu();
+    }
+
+    public void OnClickExit()
+    {
+        Application.Quit();
+    }
 }

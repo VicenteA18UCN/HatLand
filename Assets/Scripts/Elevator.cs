@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed;
+    //private float movementSpeed;
     [SerializeField] private float dontFall;
     [SerializeField] private GameObject elevator;
 
     private void OnEnable()
     {
-        this.movementSpeed = 10f;
+        //this.movementSpeed = 10f;
         this.elevator = GameObject.FindGameObjectWithTag("Elevator");
     }
 

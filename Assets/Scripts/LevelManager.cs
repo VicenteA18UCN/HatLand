@@ -39,5 +39,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public static void SettingMenu()
+    {
+        SceneManager.LoadScene("MenuSettings");
+    }
     
 }

@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67cc0ccca382c04d8009ca3a806e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1999781182}
   coins: []
   potions: []
   feathers: []
@@ -2866,10 +2866,14 @@ MonoBehaviour:
   bodyCollider: {fileID: 1455463152}
   wallLayer:
     serializedVersion: 2
+<<<<<<< Updated upstream
     m_Bits: 128
   distanceToPlayer: 0
   player: {fileID: 0}
   Proyectile: {fileID: 0}
+=======
+    m_Bits: 0
+>>>>>>> Stashed changes
 --- !u!61 &1455463152
 BoxCollider2D:
   m_ObjectHideFlags: 0
