@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] coins;
     [SerializeField] GameObject[] potions;
     [SerializeField] GameObject[] feathers;
+    [SerializeField] GameObject imageFeather;
     private Vector3 initialPlayerPosition;
     private Vector3 actualPlayerPosition;
+    private bool isGetted;
     private int livesLeft;
     private int coinsAccumulator;
     float currentTime = 0f;
@@ -183,12 +185,22 @@ public class GameManager : MonoBehaviour
         {
             if (this.feathers[i].GetComponent<Feather>().GetStatus())
             {
+                if (this.isGetted)
+                {
+                    CancelInvoke(nameof(CallStopImageFeather));
+                    CancelInvoke(nameof(CallStopPowerFeather));
+                    Invoke(nameof(CallStopPowerFeather),10f);
+                    Invoke(nameof(CallStopImageFeather),10f);
+                }
                 feathers[i].GetComponent<Feather>().ResetStatus();
                 this.feathers[i].SetActive(false);
                 this.currentTime = this.startingTime;
                 this.timeDown = true;
+                this.isGetted = true;
+                imageFeather.SetActive(true);
                 player.GetComponent<Player>().StartPowerFeather();
                 Invoke(nameof(CallStopPowerFeather),10f);
+                Invoke(nameof(CallStopImageFeather),10f);
             }
         }
     }
@@ -196,6 +208,13 @@ public class GameManager : MonoBehaviour
     public void CallStopPowerFeather()
     {
         player.GetComponent<Player>().StopPowerFeather();
+        this.isGetted = false;
+    }
+
+    public void CallStopImageFeather()
+    {
+        imageFeather.SetActive(false);
+        this.isGetted = false;
     }
     public void OnMouseOverNoButton()
     {
