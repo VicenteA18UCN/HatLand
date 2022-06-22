@@ -7,9 +7,12 @@ using TMPro;
 public class StoreManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] private SkinManager skinManager;
+    [SerializeField] private Image selectedSkin;
     void Update()
     {
         this.CoinsCanvas();
+        selectedSkin.sprite = skinManager.GetSelectedSkin().sprite;
     }
 
     private void CoinsCanvas()

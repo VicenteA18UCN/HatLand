@@ -501,9 +501,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f6971b238e5904589e25f8ade9df49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skinManager: {fileID: 11400000, guid: 3f2771b1dfc3a344a92fbe7d273efb18, type: 2}
   isDead: 0
   saveGame: 0
   playerRigidBody: {fileID: 238849881}
+  animators:
+  - {fileID: 9100000, guid: 70bc282fad3a5c74e8eb6c289bc5886b, type: 2}
+  - {fileID: 9100000, guid: 50f84d84fc603ad44bcab17259b2202a, type: 2}
 --- !u!95 &238849880
 Animator:
   serializedVersion: 3

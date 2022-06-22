@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Store.unity
     guid: 6a268b7f84bc69047bd431a726a8ec40
   - enabled: 1
-    path: Assets/Scenes/MenuPause.unity
-    guid: c43a4f4dbf9e622449dd8948a12c0465
+    path: Assets/Scenes/MenuSettings.unity
+    guid: 1c24805e3291e094ca8b9bbf6b5c96ca
   - enabled: 1
     path: Assets/Scenes/Nivel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathMenu.unity
     guid: b434c387504b514438e5d923bd7cca6c
-  - enabled: 1
-    path: Assets/Scenes/MenuSettings.unity
-    guid: 1c24805e3291e094ca8b9bbf6b5c96ca
   m_configObjects: {}

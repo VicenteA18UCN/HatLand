@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private SkinManager skinManager;
     private float playerVelocity;
     private float jumpForce;
     private bool isJumping;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRigidBody;
     private bool canGlide;
     private bool powerFeather;
+    [SerializeField] private RuntimeAnimatorController[] animators;
 
     private void OnEnable()
     {
@@ -29,6 +31,16 @@ public class Player : MonoBehaviour
         this.jumpForce = 8.2f;
         this.isJumping = false;
         this.canGlide = false;
+        GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
+        if (skinManager.GetSkinIndex() == 0)
+        {
+            animator.runtimeAnimatorController = animators[0];
+        }
+        if (skinManager.GetSkinIndex() == 1)
+        {
+            animator.runtimeAnimatorController = animators[1];
+        }
+
     }
 
     // Update is called one per frame
