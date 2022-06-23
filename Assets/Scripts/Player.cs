@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] private SkinManager skinManager;
     private float playerVelocity;
     private float jumpForce;
-    private bool isJumping;
     private Animator animator;
     [SerializeField] private bool isDead;
     [SerializeField] private bool saveGame;
@@ -17,6 +16,8 @@ public class Player : MonoBehaviour
     private bool canGlide;
     private bool powerFeather;
     [SerializeField] private RuntimeAnimatorController[] animators;
+
+    public Feet feet;
 
     private void OnEnable()
     {
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour
     {
         this.playerVelocity = 0.1f;
         this.jumpForce = 8.2f;
-        this.isJumping = false;
         this.canGlide = false;
         GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
         if (skinManager.GetSkinIndex() == 0)
@@ -72,15 +72,15 @@ public class Player : MonoBehaviour
 
     void PlayerJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if(Input.GetKeyDown(KeyCode.Space) && !feet.isJumping)
         {
+            playerRigidBody.velocity = new Vector2(0,0);
             playerRigidBody.AddForce(new Vector3 (0,jumpForce,0),ForceMode2D.Impulse);
-            isJumping = true;
         }
     }
     void PlayerAnimations()
     {
-        if(this.isJumping)
+        if(feet.isJumping)
         {
             animator.SetBool("isWalk",false);
             return;
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
     {
         if(powerFeather){
             if(canGlide){ 
-            if(Input.GetKey(KeyCode.Space) && isJumping)
+            if(Input.GetKey(KeyCode.Space) && feet.isJumping)
         {
             Vector2 force = Vector2.up * 0.39f;
             playerRigidBody.AddForceAtPosition(force, transform.position);
@@ -127,7 +127,6 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Platform"))
         {
-            this.isJumping = false;
             this.canGlide = false;
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
@@ -153,7 +152,6 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Platform"))
         {
-            this.isJumping = true;
             animator.SetBool("isJump",true);
             if(powerFeather)
             {
@@ -161,6 +159,8 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    
     public bool GetPlayerStatus()
     {
         return this.isDead;
