@@ -13,10 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] private bool saveGame;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D playerRigidBody;
-    private bool canGlide;
+    public static bool canGlide;
     private bool powerFeather;
     [SerializeField] private RuntimeAnimatorController[] animators;
-
     public Feet feet;
 
     private void OnEnable()
@@ -29,8 +28,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         this.playerVelocity = 0.1f;
-        this.jumpForce = 8.2f;
-        this.canGlide = false;
+        this.jumpForce = 7.8f;
+        canGlide = false;
         GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
         if (skinManager.GetSkinIndex() == 0)
         {
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
             if(canGlide){ 
             if(Input.GetKey(KeyCode.Space) && feet.isJumping)
         {
-            Vector2 force = Vector2.up * 0.39f;
+            Vector2 force = Vector2.up * 0.385f;
             playerRigidBody.AddForceAtPosition(force, transform.position);
         }
         }
@@ -111,7 +110,7 @@ public class Player : MonoBehaviour
 
     void CanGlide()
     {
-        this.canGlide = true;
+        canGlide = true;
     }
 
     public void StopPowerFeather()
@@ -127,7 +126,7 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Platform"))
         {
-            this.canGlide = false;
+            canGlide = false;
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
         }
@@ -155,7 +154,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isJump",true);
             if(powerFeather)
             {
-                Invoke(nameof(CanGlide),0.9f);
+                Invoke(nameof(CanGlide),1.5f);
             }
         }
     }

@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
 
     private void Update() 
     {
-
         this.UpdateDeathCanvas(livesLeft);
         this.CoinObserver();
         this.PotionObserver();

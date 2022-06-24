@@ -12,6 +12,7 @@ public class Feet : MonoBehaviour
         if(other.gameObject.CompareTag("Platform"))
         {
             this.isJumping = false;
+            Player.canGlide = false;
         }
     }
 
