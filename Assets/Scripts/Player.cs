@@ -25,6 +25,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform firePosition;
     [SerializeField] private GameObject projectile;
     private bool isShooting;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
+    [SerializeField] private AudioSource walkSoundEffect;
+    [SerializeField] private AudioSource landingSoundEffect;
+    [SerializeField] private AudioSource fireBallgSoundEffect;
+    private bool isMoving;
+    private bool playOnce;
 
     private void OnEnable()
     {
@@ -34,6 +41,8 @@ public class Player : MonoBehaviour
         this.direction = true;
         this.newDirection = true;
         this.directionShoot = 1;
+        this.isMoving = false;
+        this.playOnce = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -60,6 +69,7 @@ public class Player : MonoBehaviour
         this.PlayerJump();
         this.Gliding();
         PlayerShoot();
+        WalkSoundEffect();
     }
 
     void FixedUpdate()
@@ -96,6 +106,8 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !feet.isJumping)
         {
+            isMoving = false;
+            jumpSoundEffect.Play();
             playerRigidBody.velocity = new Vector2(0,0);
             playerRigidBody.AddForce(new Vector3 (0,jumpForce,0),ForceMode2D.Impulse);
         }
@@ -110,10 +122,12 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
         {
             animator.SetBool("isWalk",true);
+            isMoving = true;
         }
         if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isWalk",false);
+            isMoving = false;
         }
     }
 
@@ -152,6 +166,15 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Platform"))
         {
+            isMoving=true;
+            canGlide = false;
+            animator.SetBool("isJump",false);
+            animator.SetBool("isWalk",true);
+            landingSoundEffect.Play();
+        }
+        if(other.gameObject.CompareTag("OneWayPlatform"))
+        {         
+            isMoving=true;
             canGlide = false;
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
@@ -159,6 +182,7 @@ public class Player : MonoBehaviour
 
         if(other.gameObject.CompareTag("Enemy"))
         {
+            deathSoundEffect.Play();
             this.isDead=true;
         }
 
@@ -178,6 +202,16 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Platform"))
         {
             animator.SetBool("isJump",true);
+            isMoving = false;
+            if(powerFeather)
+            {
+                Invoke(nameof(CanGlide),1.5f);
+            }
+        }
+        if(other.gameObject.CompareTag("OneWayPlatform"))
+        {            
+            animator.SetBool("isJump",true);
+            isMoving = false;
             if(powerFeather)
             {
                 Invoke(nameof(CanGlide),1.5f);
@@ -207,6 +241,7 @@ public class Player : MonoBehaviour
     IEnumerator Shoot()
     {
         isShooting = true;
+        fireBallgSoundEffect.Play();
         GameObject newProjectile = Instantiate(projectile, firePosition.position, Quaternion.identity);
         newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed*directionShoot*Time.fixedDeltaTime,0f);
         newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*directionShoot, newProjectile.transform.localScale.y );
@@ -215,6 +250,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(shootTime);
         isShooting = false;
 
+    }
+
+    void WalkSoundEffect()
+    {
+        if(isMoving)
+        {
+            if(playOnce)
+            {
+                playOnce = false;
+                walkSoundEffect.Play();
+            }
+        }
+        else{
+            playOnce = true;
+            walkSoundEffect.Stop();
+        }
     }
     public bool GetSaveGame(){return this.saveGame;}
 

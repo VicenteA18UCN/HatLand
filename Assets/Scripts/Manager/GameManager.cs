@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] TextMeshProUGUI  lifeText;
     private bool timeDown;
+
+    
+    [SerializeField] private AudioSource collettionSoundEffect;
+
     private void OnEnable()
     {
         if(!PlayerPrefs.HasKey("Coins"))
@@ -137,6 +141,7 @@ public class GameManager : MonoBehaviour
         {
             if(coins[i].GetComponent<Coin>().GetStatus())
             {
+                collettionSoundEffect.Play();
                 coins[i].GetComponent<Coin>().ResetStatus();
                 this.coins[i].SetActive(false);
                 this.coinsAccumulator++;
@@ -161,7 +166,7 @@ public class GameManager : MonoBehaviour
         {
             if(this.potions[i].GetComponent<Potion>().GetStatus())
             {
-
+                collettionSoundEffect.Play();
                 potions[i].GetComponent<Potion>().ResetStatus();
                 //this.UpdateCoinsCanvas();
                 this. potions[i].SetActive(false);
@@ -185,6 +190,7 @@ public class GameManager : MonoBehaviour
         {
             if (this.feathers[i].GetComponent<Feather>().GetStatus())
             {
+                collettionSoundEffect.Play();
                 if (this.isGettedFeather)
                 {
                     CancelInvoke(nameof(CallStopImageFeather));

@@ -11,10 +11,11 @@ public class AiPatrol : MonoBehaviour
     [SerializeField] private Transform groundCheckPosition;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Collider2D bodyCollider;
-    [SerializeField] private LayerMask wallLayer;   
-    [SerializeField] private float distanceToPlayer;
+    [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject Proyectile;
+    [SerializeField] private AudioSource walkSoundEffect;   
+    private float distanceToPlayer;
     private float xCollision;
     private bool flipOff;
     private Animator animator;
@@ -95,6 +96,7 @@ public class AiPatrol : MonoBehaviour
             enemySpeed *= -1;
             chaseSpeed *= -1;
             mustPatrol = true;
+            walkSoundEffect.Play();
         }
         
     }
