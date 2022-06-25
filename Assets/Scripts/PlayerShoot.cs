@@ -19,7 +19,6 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame  
     void Update()
     {
-        ChangeDirection();
         if(Input.GetKeyDown(KeyCode.F) && !isShooting)
         {
             StartCoroutine(Shoot());
@@ -39,16 +38,6 @@ public class PlayerShoot : MonoBehaviour
 
     }
 
-    void ChangeDirection()
-    {
-        if(Input.GetKey(KeyCode.A))
-        {
-            direction = -1;
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            direction= 1;
-        }
-    }
-    
+    public void setDirection(int direction){this.direction = direction;}
+    public int getDirection(){return this.direction;}
 }

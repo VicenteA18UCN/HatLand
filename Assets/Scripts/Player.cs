@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private SkinManager skinManager;
+    private PlayerShoot platerShoot;
     private float playerVelocity;
     private float jumpForce;
     private Animator animator;
@@ -18,7 +19,12 @@ public class Player : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController[] animators;
     public Feet feet;
     private bool direction;
+    private int directionShoot;
     private bool newDirection;
+    [SerializeField] private float shootSpeed, shootTime;
+    [SerializeField] private Transform firePosition;
+    [SerializeField] private GameObject projectile;
+    private bool isShooting;
 
     private void OnEnable()
     {
@@ -27,6 +33,7 @@ public class Player : MonoBehaviour
         this.playerRigidBody = GetComponent<Rigidbody2D>();
         this.direction = true;
         this.newDirection = true;
+        this.directionShoot = 1;
     }
     // Start is called before the first frame update
     void Start()
@@ -52,6 +59,7 @@ public class Player : MonoBehaviour
         this.PlayerAnimations();
         this.PlayerJump();
         this.Gliding();
+        PlayerShoot();
     }
 
     void FixedUpdate()
@@ -79,6 +87,7 @@ public class Player : MonoBehaviour
         if(!(direction == newDirection))
         {
             transform.Rotate(0f,180f,0f);
+            directionShoot = directionShoot*-1;
             direction = newDirection;
         }
     }
@@ -187,6 +196,26 @@ public class Player : MonoBehaviour
         this.isDead = false;
     }
 
+    void PlayerShoot()
+    {
+        if(Input.GetKeyDown(KeyCode.F) && !isShooting)
+        {
+            StartCoroutine(Shoot());
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        isShooting = true;
+        GameObject newProjectile = Instantiate(projectile, firePosition.position, Quaternion.identity);
+        newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed*directionShoot*Time.fixedDeltaTime,0f);
+        newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*directionShoot, newProjectile.transform.localScale.y );
+        //Animacion de disparo si tenemos
+
+        yield return new WaitForSeconds(shootTime);
+        isShooting = false;
+
+    }
     public bool GetSaveGame(){return this.saveGame;}
 
     public void SetSaveGame(bool saveGame){this.saveGame = saveGame;}

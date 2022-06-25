@@ -175,6 +175,10 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 70bc282fad3a5c74e8eb6c289bc5886b, type: 2}
   - {fileID: 9100000, guid: 50f84d84fc603ad44bcab17259b2202a, type: 2}
   feet: {fileID: 6982179093189723516}
+  shootSpeed: 500
+  shootTime: 1
+  firePosition: {fileID: 6982179092097687027}
+  projectile: {fileID: 1749335379749613656, guid: 1473f059d2e5e02448d2ffc4e7ddbdf0, type: 3}
 --- !u!114 &369862935247238470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369862935247238465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98227c51514e9634e9b8082055c88612, type: 3}
   m_Name: 
