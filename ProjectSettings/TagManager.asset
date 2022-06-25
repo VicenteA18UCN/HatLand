@@ -17,6 +17,7 @@ TagManager:
   - Feather
   - Particles
   - UnderPlayer
+  - Music
   layers:
   - Default
   - TransparentFX

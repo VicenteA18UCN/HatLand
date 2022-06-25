@@ -215,20 +215,12 @@ public class GameManager : MonoBehaviour
         imageFeather.SetActive(false);
         this.isGetted = false;
     }
-    public void OnMouseOverNoButton()
-    {
-        return;
-    }
 
     public void OnClickPlayGameButton()
     {
         LevelManager.LoadNextLevel();       
     }
 
-    public void OnMouseOverPlayGameButton()
-    {
-         return; 
-    }
 
     public void SaveGame()
     {

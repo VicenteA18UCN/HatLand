@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 66267e9f2b46bfe4ca107f2d009583c3, type: 3}
+  - {fileID: 8300000, guid: a7f1c966bd9ccd34aa5e3f39ea79a866, type: 3}
 --- !u!4 &1559497139
 Transform:
   m_ObjectHideFlags: 0
@@ -2169,19 +2169,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1740802241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1559497141}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OnClickBackMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1740802241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,6 +2228,22 @@ MonoBehaviour:
         - m_Target: {fileID: 1559497141}
           m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
           m_MethodName: OnClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1559497141}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: OnClickBackMenu
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
