@@ -9,20 +9,18 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject projectile;
     private bool isShooting;
     private int direction;
-    private bool firePower;
 
     void Start()
     {
         isShooting = false;
         direction = 1;
-        firePower = false;
     }
 
     // Update is called once per frame  
     void Update()
     {
         ChangeDirection();
-        if(Input.GetKeyDown(KeyCode.F) && !isShooting && firePower)
+        if(Input.GetKeyDown(KeyCode.F) && !isShooting)
         {
             StartCoroutine(Shoot());
         }
@@ -52,14 +50,5 @@ public class PlayerShoot : MonoBehaviour
             direction= 1;
         }
     }
-
-    public void StopFirePower()
-    {
-        this.firePower = false;
-    }
-
-    public void StartFirePower()
-    {
-        this.firePower = true;
-    }
+    
 }

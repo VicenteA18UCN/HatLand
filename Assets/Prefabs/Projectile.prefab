@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4742502325031020163}
   - component: {fileID: 5599899416866460678}
   - component: {fileID: 9165717211310665226}
+  - component: {fileID: -6518577028253661933}
+  - component: {fileID: 9111914696384118401}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -27,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749335379749613656}
-  m_LocalRotation: {x: 0.029300757, y: -0.011120748, z: -0.35466596, w: 0.9344677}
-  m_LocalPosition: {x: 10.03, y: -3.124, z: -34.355}
-  m_LocalScale: {x: 0.4726, y: 0.4188, z: 1}
+  m_LocalRotation: {x: 0.031340133, y: 0.00003635809, z: 0.0011594823, w: 0.9995081}
+  m_LocalPosition: {x: 10.01, y: -2.998, z: -34.347}
+  m_LocalScale: {x: 4.554908, y: 4.0363846, z: 9.637977}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.687, y: -2.385, z: -41.623}
+  m_LocalEulerAnglesHint: {x: 3.592, y: 0.008, z: 0.133}
 --- !u!212 &4556398667405733055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 59c8cd2a91ad7f846b9efd79b945c356, type: 3}
+  m_Sprite: {fileID: 34690248035048028, guid: f87e8474ca9267f4ab7477df361c96e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00014618039, y: -0.000022035092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.44, y: 0.23}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.08431159, y: 0.16390127}
   m_EdgeRadius: 0
 --- !u!114 &9165717211310665226
 MonoBehaviour:
@@ -145,4 +147,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileEffect: {fileID: 1913055381608458636, guid: ade7a4bba1c08e2448bd945d5d09f762, type: 3}
-  dieTime: 1
+  dieTime: 2
+--- !u!95 &-6518577028253661933
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749335379749613656}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6f1b03bc5857a44cada16c0d11692c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &9111914696384118401
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749335379749613656}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ce9842870b1a3d44d990de62dcb80866, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
