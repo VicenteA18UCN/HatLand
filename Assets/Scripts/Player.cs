@@ -61,14 +61,15 @@ public class Player : MonoBehaviour
 
     void PlayerMovements()
     {
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             //playerRigidBody.velocity = new Vector2(200*Time.fixedDeltaTime, playerRigidBody.velocity.y);
+            transform.Translate(0,0,0);
             transform.Translate(playerVelocity,0,0);
             //spriteRenderer.flipX = false;
             newDirection =  true;
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             //playerRigidBody.velocity = new Vector2(-200*Time.fixedDeltaTime, playerRigidBody.velocity.y);
             transform.Translate(playerVelocity,0,0);
