@@ -12,14 +12,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] coins;
     [SerializeField] GameObject[] potions;
     [SerializeField] GameObject[] feathers;
+    [SerializeField] GameObject[] firePower;
     [SerializeField] GameObject imageFeather;
+    [SerializeField] GameObject imageFirePower;
     private Vector3 initialPlayerPosition;
     private Vector3 actualPlayerPosition;
-    private bool isGetted;
+    private bool isGettedFeather;
+    private bool isGettedFirePower;
     private int livesLeft;
     private int coinsAccumulator;
     float currentTime = 0f;
     float startingTime = 10f;
+
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] TextMeshProUGUI  lifeText;
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
         this.coins = GameObject.FindGameObjectsWithTag("Coin");
         this.potions = GameObject.FindGameObjectsWithTag("Potion");
         this.feathers = GameObject.FindGameObjectsWithTag("Feather");
+        this.firePower = GameObject.FindGameObjectsWithTag("FirePower");
         this.lifeText.text = livesLeft.ToString();
         this.coinText.text = coinsAccumulator.ToString();
         this.countdownText.text = "";
@@ -59,6 +64,7 @@ public class GameManager : MonoBehaviour
         this.CoinObserver();
         this.PotionObserver();
         this.FeatherObserver();
+        this.FirePowerObserver();
         if(player.GetComponent<Player>().GetSaveGame())
         {
             SaveGame();
@@ -184,7 +190,7 @@ public class GameManager : MonoBehaviour
         {
             if (this.feathers[i].GetComponent<Feather>().GetStatus())
             {
-                if (this.isGetted)
+                if (this.isGettedFeather)
                 {
                     CancelInvoke(nameof(CallStopImageFeather));
                     CancelInvoke(nameof(CallStopPowerFeather));
@@ -195,7 +201,7 @@ public class GameManager : MonoBehaviour
                 this.feathers[i].SetActive(false);
                 this.currentTime = this.startingTime;
                 this.timeDown = true;
-                this.isGetted = true;
+                this.isGettedFeather = true;
                 imageFeather.SetActive(true);
                 player.GetComponent<Player>().StartPowerFeather();
                 Invoke(nameof(CallStopPowerFeather),10f);
@@ -207,13 +213,60 @@ public class GameManager : MonoBehaviour
     public void CallStopPowerFeather()
     {
         player.GetComponent<Player>().StopPowerFeather();
-        this.isGetted = false;
+        this.isGettedFeather = false;
     }
 
     public void CallStopImageFeather()
     {
         imageFeather.SetActive(false);
-        this.isGetted = false;
+        this.isGettedFeather = false;
+    }
+
+    private void RestarFirePower()
+    {
+        for (int i = 0; i < firePower.Length; i++)
+        {
+            this.firePower[i].GetComponent<FirePower>().ResetStatus();
+            this.firePower[i].SetActive(true);
+        }
+    }
+
+    private void FirePowerObserver()
+    {
+        for (int i = 0; i < firePower.Length; i++)
+        {
+            if (this.firePower[i].GetComponent<FirePower>().GetStatus())
+            {
+                if (this.isGettedFirePower)
+                {
+                    CancelInvoke(nameof(CallStopImageFirePower));
+                    CancelInvoke(nameof(CallStopFirePower));
+                    Invoke(nameof(CallStopFirePower),10f);
+                    Invoke(nameof(CallStopImageFirePower),10f);
+                }
+                firePower[i].GetComponent<FirePower>().ResetStatus();
+                this.firePower[i].SetActive(false);
+                this.currentTime = this.startingTime;
+                this.timeDown = true;
+                this.isGettedFirePower = true;
+                imageFirePower.SetActive(true);
+                player.GetComponent<PlayerShoot>().StartFirePower();
+                Invoke(nameof(CallStopFirePower),10f);
+                Invoke(nameof(CallStopImageFirePower),10f);
+            }
+        }
+    }
+
+    public void CallStopFirePower()
+    {
+        player.GetComponent<PlayerShoot>().StopFirePower();
+        this.isGettedFirePower = false;
+    }
+
+    public void CallStopImageFirePower()
+    {
+        imageFirePower.SetActive(false);
+        this.isGettedFirePower = false;
     }
 
     public void OnClickPlayGameButton()

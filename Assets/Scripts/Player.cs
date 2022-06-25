@@ -17,12 +17,16 @@ public class Player : MonoBehaviour
     private bool powerFeather;
     [SerializeField] private RuntimeAnimatorController[] animators;
     public Feet feet;
+    private bool direction;
+    private bool newDirection;
 
     private void OnEnable()
     {
         this.animator = GetComponent<Animator>();
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.playerRigidBody = GetComponent<Rigidbody2D>();
+        this.direction = true;
+        this.newDirection = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -59,13 +63,22 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.D))
         {
+            //playerRigidBody.velocity = new Vector2(200*Time.fixedDeltaTime, playerRigidBody.velocity.y);
             transform.Translate(playerVelocity,0,0);
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
+            newDirection =  true;
         }
         if(Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-playerVelocity,0,0);
-            spriteRenderer.flipX = true;
+            //playerRigidBody.velocity = new Vector2(-200*Time.fixedDeltaTime, playerRigidBody.velocity.y);
+            transform.Translate(playerVelocity,0,0);
+            //spriteRenderer.flipX = true;
+            newDirection = false;
+        }
+        if(!(direction == newDirection))
+        {
+            transform.Rotate(0f,180f,0f);
+            direction = newDirection;
         }
     }
 
@@ -122,6 +135,9 @@ public class Player : MonoBehaviour
     {
         this.powerFeather = true;
     }
+
+    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Platform"))

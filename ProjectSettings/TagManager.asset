@@ -18,6 +18,8 @@ TagManager:
   - Particles
   - UnderPlayer
   - Music
+  - Projectile
+  - FirePower
   layers:
   - Default
   - TransparentFX
