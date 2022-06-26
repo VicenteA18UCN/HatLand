@@ -197,6 +197,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9178473492609380028, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
+--- !u!82 &15735410 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4370447136145782478, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
+  m_PrefabInstance: {fileID: 15735409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &427609776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -262, y: -82}
+  m_AnchoredPosition: {x: -273, y: -93}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964676074
@@ -2354,6 +2359,7 @@ MonoBehaviour:
   countdownText: {fileID: 724224763}
   coinText: {fileID: 1775370928}
   lifeText: {fileID: 1728705547}
+  collettionSoundEffect: {fileID: 15735410}
 --- !u!4 &1377741218
 Transform:
   m_ObjectHideFlags: 0
@@ -2542,17 +2548,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8496123061972114984, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: m_AssetsPPU
+      value: 109
+      objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.88
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2587,9 +2597,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114987, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496123061972114987, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2100761558}
+    - target: {fileID: 8496123061972114987, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: offsetSmoothing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: field of view
+      value: 25.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: orthographic size
+      value: 5.009697
+      objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114991, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -2764,7 +2798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1852, y: -81}
+  m_AnchoredPosition: {x: 1841, y: -92}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775370928
