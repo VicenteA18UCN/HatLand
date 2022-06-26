@@ -182,6 +182,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             deathSoundEffect.Play();
+            playerRigidBody.velocity = new Vector2(0,0);
             this.isDead=true;
         }
 

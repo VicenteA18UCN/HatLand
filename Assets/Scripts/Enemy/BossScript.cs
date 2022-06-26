@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BossScript : MonoBehaviour
 {
     [SerializeField] private bool mustPatrol;
@@ -11,10 +12,12 @@ public class BossScript : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Collider2D bodyCollider;
     [SerializeField] private LayerMask wallLayer;
-    [SerializeField] private Transform player, shootPos;
-    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform player, shootPos, fireWallPos1, fireWallPos2;
+    [SerializeField] private GameObject projectile, FireWall, projectileFall;
     [SerializeField] private AudioSource walkSoundEffect;
-    private int hp;
+    [SerializeField] private Transform platform1,platform2,platform3;
+    [SerializeField] private GameObject projectileEffect;
+    [SerializeField] private int hp;
     private float distanceToPlayer;
     private float xCollision;
     private bool flipOff;
@@ -30,11 +33,11 @@ public class BossScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = 10;
         flipOff = false;
         mustPatrol = true;
         Attacking = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     // Update is called once per frame
@@ -112,7 +115,24 @@ public class BossScript : MonoBehaviour
         if(!flipOff)
         {
             rigidBody.velocity = new Vector2(enemySpeed*Time.fixedDeltaTime, rigidBody.velocity.y);
-            StartCoroutine(Shoot());
+            int randomNumber =  Random.Range(0, 4);
+            for(int i = 0; i< randomNumber;i++)
+            {
+                yield return new WaitForSeconds(timeBetweenShoot);
+                StartCoroutine(Shoot());
+            }
+            int randomNumber2 =  1;
+            if(randomNumber2 == 1 && hp<6)
+            {
+                yield return new WaitForSeconds(timeBetweenShoot*2);
+                GameObject newFireWall1 = Instantiate(FireWall,fireWallPos2.position,Quaternion.identity);
+                GameObject newFireWall2 = Instantiate(FireWall,fireWallPos1.position,Quaternion.identity);  
+                StartCoroutine(FireFall());
+                yield return new WaitForSeconds(timeBetweenShoot+2+timeBetweenShoot);
+                Destroy(newFireWall1);
+                Destroy(newFireWall2);
+
+            }
 
         }
         else
@@ -129,6 +149,36 @@ public class BossScript : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile,shootPos.position,Quaternion.identity);
         newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed *chaseSpeed * Time.fixedDeltaTime,0f);
         newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
+    }
+
+    IEnumerator FireFall()
+    {
+        print("FireFall");
+        rigidBody.velocity = Vector2.zero;
+        int randomPlatform =  Random.Range(1,3);
+        print(randomPlatform);
+        if(1 == randomPlatform)
+        {
+            Instantiate(projectileEffect, platform1.position, Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenShoot+2);
+            GameObject newProjectile = Instantiate(projectileFall,platform1.position,Quaternion.Euler (0f, 0f, -90f));
+            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
+        }
+        if(2 == randomPlatform)
+        {
+            Instantiate(projectileEffect, platform2.position, Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenShoot+2);
+            GameObject newProjectile = Instantiate(projectileFall,platform2.position,Quaternion.Euler (0f, 0f, -90f));
+            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
+        }
+        if(3 == randomPlatform)
+        {
+            Instantiate(projectileEffect, platform3.position, Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenShoot+2);
+            GameObject newProjectile = Instantiate(projectileFall,platform3.position,Quaternion.Euler (0f, 0f, -90f));
+            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
+        }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -160,6 +210,7 @@ public class BossScript : MonoBehaviour
         if(other.gameObject.CompareTag("Projectile"))
         {
             hp--;
+            print(hp);
             if(hp == 0)
             {
                 Destroy(gameObject);

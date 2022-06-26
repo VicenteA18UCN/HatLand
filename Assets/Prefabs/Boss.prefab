@@ -65,6 +65,8 @@ Transform:
   m_Children:
   - {fileID: 3032576917015875906}
   - {fileID: 7838495678329948830}
+  - {fileID: 1563698373200086017}
+  - {fileID: 8942793992105541657}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,8 +191,17 @@ MonoBehaviour:
     m_Bits: 128
   player: {fileID: 6052702370438458410, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
   shootPos: {fileID: 7838495678329948830}
+  fireWallPos1: {fileID: 1563698373200086017}
+  fireWallPos2: {fileID: 8942793992105541657}
   projectile: {fileID: 1749335379749613656, guid: 4d022cb391a641f4087308dc091a3548, type: 3}
+  FireWall: {fileID: 7543321144846421381, guid: 666199a24a7f8c84684aa93ca0dfaa3b, type: 3}
+  projectileFall: {fileID: 1749335379749613656, guid: 35b756abe2440054f995b3b7de49cf0b, type: 3}
   walkSoundEffect: {fileID: 0}
+  platform1: {fileID: 0}
+  platform2: {fileID: 0}
+  platform3: {fileID: 0}
+  projectileEffect: {fileID: 1913055381608458636, guid: 223891a54e1c8334cb1ec590af998503, type: 3}
+  hp: 10
 --- !u!61 &3032576917953128434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -293,4 +304,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3032576917953128432}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8215242623106278387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8942793992105541657}
+  m_Layer: 0
+  m_Name: FireWallPos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8942793992105541657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215242623106278387}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.89, y: -1.28, z: -4.9574933}
+  m_LocalScale: {x: 1.350979, y: 1.350979, z: 1.350979}
+  m_Children: []
+  m_Father: {fileID: 3032576917953128432}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8574136943461027688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563698373200086017}
+  m_Layer: 0
+  m_Name: FireWallPos1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563698373200086017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574136943461027688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5, y: -1.35, z: -4.9574933}
+  m_LocalScale: {x: 1.350979, y: 1.350979, z: 1.350979}
+  m_Children: []
+  m_Father: {fileID: 3032576917953128432}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
