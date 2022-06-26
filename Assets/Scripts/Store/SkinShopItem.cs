@@ -10,6 +10,7 @@ public class SkinShopItem : MonoBehaviour
     [SerializeField] private int skinIndex;
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private GameObject NotEnoughCoins;
     private Skin skin;
 
     void Start()
@@ -24,7 +25,7 @@ public class SkinShopItem : MonoBehaviour
         } else
         {
             buyButton.gameObject.SetActive(true);
-            costText.text = skin.cost.ToString();
+            costText.text = "$" + skin.cost.ToString();
         }
     }
 
@@ -48,7 +49,12 @@ public class SkinShopItem : MonoBehaviour
            skinManager.SelectSkin(skinIndex); 
         } else
         {
-            Debug.Log("Not enough coins.");
+            NotEnoughCoins.SetActive(true);
         }
+    }
+
+    public void BackButtonPressed()
+    {
+        NotEnoughCoins.SetActive(false);
     }
 }
