@@ -155,29 +155,15 @@ public class BossScript : MonoBehaviour
     {
         print("FireFall");
         rigidBody.velocity = Vector2.zero;
-        int randomPlatform =  Random.Range(1,3);
-        print(randomPlatform);
-        if(1 == randomPlatform)
-        {
-            Instantiate(projectileEffect, platform1.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenShoot+2);
-            GameObject newProjectile = Instantiate(projectileFall,platform1.position,Quaternion.Euler (0f, 0f, -90f));
-            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
-        }
-        if(2 == randomPlatform)
-        {
-            Instantiate(projectileEffect, platform2.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenShoot+2);
-            GameObject newProjectile = Instantiate(projectileFall,platform2.position,Quaternion.Euler (0f, 0f, -90f));
-            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
-        }
-        if(3 == randomPlatform)
-        {
-            Instantiate(projectileEffect, platform3.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenShoot+2);
-            GameObject newProjectile = Instantiate(projectileFall,platform3.position,Quaternion.Euler (0f, 0f, -90f));
-            newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
-        }
+        Instantiate(projectileEffect, platform1.position, Quaternion.identity);
+        Instantiate(projectileEffect, platform2.position, Quaternion.identity);
+        Instantiate(projectileEffect, platform3.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(timeBetweenShoot+2);
+
+        GameObject fireFall1 = Instantiate(projectileFall,platform1.position,Quaternion.Euler (0f, 0f, -90f));
+        GameObject fireFall2 = Instantiate(projectileFall,platform2.position,Quaternion.Euler (0f, 0f, -90f));
+        GameObject fireFall3 = Instantiate(projectileFall,platform3.position,Quaternion.Euler (0f, 0f, -90f));
         
     }
     void OnTriggerEnter2D(Collider2D other)
