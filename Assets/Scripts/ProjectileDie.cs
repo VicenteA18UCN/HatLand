@@ -6,6 +6,7 @@ public class ProjectileDie : MonoBehaviour
 {
    [SerializeField] private GameObject ProjectileEffect;
    [SerializeField] private float dieTime;
+   [SerializeField] private string tag;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class ProjectileDie : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         GameObject collisonGameObject = other.gameObject;
-        if(!collisonGameObject.CompareTag("Player"))
+        if(!collisonGameObject.CompareTag(tag))
         {
             Die();
         }

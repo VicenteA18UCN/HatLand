@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 50f84d84fc603ad44bcab17259b2202a, type: 2}
   feet: {fileID: 6982179093189723516}
   shootSpeed: 500
-  shootTime: 1
+  shootTime: 5
   firePosition: {fileID: 6982179092097687027}
   projectile: {fileID: 1749335379749613656, guid: 1473f059d2e5e02448d2ffc4e7ddbdf0, type: 3}
   jumpSoundEffect: {fileID: 4370447136145782478}

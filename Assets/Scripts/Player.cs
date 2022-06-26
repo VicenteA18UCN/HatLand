@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private SkinManager skinManager;
-    private PlayerShoot platerShoot;
     private float playerVelocity;
     private float jumpForce;
     private Animator animator;

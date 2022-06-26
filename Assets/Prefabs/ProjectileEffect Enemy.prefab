@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1913055381608458634}
   - component: {fileID: 1913055381608458635}
   m_Layer: 0
-  m_Name: ProjectileEffect
+  m_Name: ProjectileEffect Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,8 +221,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.8888755, b: 0.2971698, a: 1}
-      maxColor: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
+      minColor: {r: 0.3773585, g: 0.32027936, b: 0.012459958, a: 1}
+      maxColor: {r: 0.23584908, g: 0.0055624777, b: 0.0055624777, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
