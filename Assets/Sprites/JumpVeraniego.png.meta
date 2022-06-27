@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: b1519ba5aa39e4e4b8cc254e147a1593
+guid: 47c1f4cb6d760374f8b8f14a8a313aea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3335585800018451406
-    second: ProtaRightWalkVERANIEGO_0
+      213: 1214424156303160326
+    second: JumpVeraniego_0
   - first:
-      213: -7188910582520231427
-    second: ProtaRightWalkVERANIEGO_1
+      213: -1023101899890447819
+    second: JumpVeraniego_1
   - first:
-      213: 902989485204295970
-    second: ProtaRightWalkVERANIEGO_2
+      213: -2810719817748270449
+    second: JumpVeraniego_2
   - first:
-      213: 3180704139562171172
-    second: ProtaRightWalkVERANIEGO_3
+      213: -1708780948447225647
+    second: JumpVeraniego_3
   - first:
-      213: 2323065194897226552
-    second: ProtaRightWalkVERANIEGO_4
+      213: -4717792602459189821
+    second: JumpVeraniego_4
   - first:
-      213: 9001527838152682577
-    second: ProtaRightWalkVERANIEGO_5
+      213: -2166847880677565908
+    second: JumpVeraniego_5
+  - first:
+      213: 6729126488055436856
+    second: JumpVeraniego_6
+  - first:
+      213: 8840505728186011973
+    second: JumpVeraniego_7
+  - first:
+      213: -8880680395915813242
+    second: JumpVeraniego_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,11 +118,116 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_0
+      name: JumpVeraniego_0
       rect:
         serializedVersion: 2
         x: 22
-        y: 147
+        y: 144
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6047a1bf5508ad010800000000000000
+      internalID: 1214424156303160326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpVeraniego_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 144
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53aa0002e363dc1f0800000000000000
+      internalID: -1023101899890447819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpVeraniego_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 144
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82b6f3b7315ef8d0800000000000000
+      internalID: -2810719817748270449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpVeraniego_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 81
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d819d8e7c03948e0800000000000000
+      internalID: -1708780948447225647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpVeraniego_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 80
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd447ebf98078eb0800000000000000
+      internalID: -4717792602459189821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpVeraniego_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 80
         width: 21
         height: 32
       alignment: 0
@@ -123,40 +237,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2342018336e95b1d0800000000000000
-      internalID: -3335585800018451406
+      spriteID: c2ad7ed355fcde1e0800000000000000
+      internalID: -2166847880677565908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_1
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 148
-        width: 20
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df9c5d6e9ebdb3c90800000000000000
-      internalID: -7188910582520231427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_2
+      name: JumpVeraniego_6
       rect:
         serializedVersion: 2
         x: 22
-        y: 83
-        width: 21
+        y: 16
+        width: 20
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221d38d0720188c00800000000000000
-      internalID: 902989485204295970
+      spriteID: 836573173e8a26d50800000000000000
+      internalID: 6729126488055436856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_3
+      name: JumpVeraniego_7
       rect:
         serializedVersion: 2
         x: 86
-        y: 83
+        y: 17
         width: 20
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,18 +279,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42bb7361091242c20800000000000000
-      internalID: 3180704139562171172
+      spriteID: 541555bee19cfaa70800000000000000
+      internalID: 8840505728186011973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_4
+      name: JumpVeraniego_8
       rect:
         serializedVersion: 2
-        x: 22
-        y: 20
+        x: 150
+        y: 16
         width: 20
         height: 32
       alignment: 0
@@ -207,29 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83b3ce39c7f2d3020800000000000000
-      internalID: 2323065194897226552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProtaRightWalkVERANIEGO_5
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 19
-        width: 20
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15c61ec60e9dbec70800000000000000
-      internalID: 9001527838152682577
+      spriteID: 68e99a55b3c71c480800000000000000
+      internalID: -8880680395915813242
       vertices: []
       indices: 
       edges: []
