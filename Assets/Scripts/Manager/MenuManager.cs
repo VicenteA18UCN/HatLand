@@ -7,6 +7,8 @@ using System;
 public class MenuManager : MonoBehaviour
 {
     private AudioManager audioManager;
+    [SerializeField] private GameObject levelMusic;
+
     
     private void OnEnable(){
         this.audioManager = GetComponent<AudioManager>();
@@ -18,7 +20,8 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickPlayGameButton()
     {
-        LevelManager.LoadNextLevel();      
+        LevelManager.LoadNextLevel();
+        levelMusic.GetComponent<SwapBGMusicLevel>().PlayBackgroundMusic();      
     }
 
     public void OnClickSound()

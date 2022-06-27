@@ -707,7 +707,6 @@ GameObject:
   - component: {fileID: 578307086}
   - component: {fileID: 578307085}
   - component: {fileID: 578307084}
-  - component: {fileID: 578307087}
   m_Layer: 8
   m_Name: Platform (1)
   m_TagString: Platform
@@ -1393,30 +1392,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!68 &578307087
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578307082}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 23.930248, y: -5.0903473}
-  - {x: 23.936817, y: -7.672747}
-  - {x: 62.024742, y: -7.4888034}
-  - {x: 62.02325, y: -4.8034143}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &629910710
 GameObject:
   m_ObjectHideFlags: 0

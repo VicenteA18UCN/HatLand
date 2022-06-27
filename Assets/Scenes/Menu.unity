@@ -195,7 +195,6 @@ GameObject:
   m_Component:
   - component: {fileID: 206424649}
   - component: {fileID: 206424648}
-  - component: {fileID: 206424650}
   - component: {fileID: 206424647}
   m_Layer: 0
   m_Name: Background Music
@@ -327,18 +326,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &206424650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206424646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc19125d54d39e418e8a5a1545a3c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &282379512
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175c39970a28d024eb7da83514ac7feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelMusic: {fileID: 5537429452691843748, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
 --- !u!1 &334168058
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175c39970a28d024eb7da83514ac7feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelMusic: {fileID: 5537429452691843748, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
 --- !u!82 &625811448
 AudioSource:
   m_ObjectHideFlags: 0
