@@ -25,7 +25,7 @@ public class SkinShopItem : MonoBehaviour
         } else
         {
             buyButton.gameObject.SetActive(true);
-            costText.text = "$" + skin.cost.ToString();
+            costText.text = "$ " + skin.cost.ToString();
         }
     }
 

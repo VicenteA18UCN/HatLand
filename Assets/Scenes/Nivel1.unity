@@ -3847,6 +3847,10 @@ PrefabInstance:
       value: LevelBackground Music
       objectReference: {fileID: 0}
     - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}

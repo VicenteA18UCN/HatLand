@@ -23,12 +23,14 @@ public class SwapBGMusicLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "DeathMenu")
+        if (SceneManager.GetActiveScene().name == "DeathMenu" || SceneManager.GetActiveScene().name == "Menu")
         {
             Destroy(gameObject);
             levelMusic.Stop();
-        }  
+        }
     }
 
-    public void PlayBackgroundMusic(){levelMusic.Play();print("play");}
+    public void PlayBackgroundMusic(){
+        levelMusic.Play();print("play");
+        }
 }
