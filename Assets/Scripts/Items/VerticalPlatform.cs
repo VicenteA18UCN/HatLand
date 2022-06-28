@@ -15,6 +15,11 @@ public class VerticalPlatform : MonoBehaviour
 
     void Update() 
     {
+        RotateCollider();               
+    }
+
+    void RotateCollider()
+    {
         if(Input.GetKeyUp(KeyCode.S))
         {
             waitTime = 0.3f;
@@ -32,6 +37,5 @@ public class VerticalPlatform : MonoBehaviour
                 waitTime -= Time.deltaTime;
             }
         }
-               
     }
 }

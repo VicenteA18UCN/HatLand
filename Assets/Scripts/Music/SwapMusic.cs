@@ -9,6 +9,13 @@ public class SwapMusic : MonoBehaviour
 
     void Update()
     {
+        StartBackgroundMusicMenu();
+        StopBackgroundMusicMenu();
+        
+    }
+
+    void StopBackgroundMusicMenu()
+    {
         if (SceneManager.GetActiveScene().name == "Nivel1")
         {
             BGmusic.instance.GetComponent<AudioSource>().Stop();
@@ -20,7 +27,10 @@ public class SwapMusic : MonoBehaviour
             BGmusic.instance.GetComponent<AudioSource>().Stop();
             this.isPause = true;
         }
-        
+    }
+
+    void StartBackgroundMusicMenu()
+    {
         if(SceneManager.GetActiveScene().name == "Menu" && this.isPause)
         {
             BGmusic.instance.GetComponent<AudioSource>().Play();

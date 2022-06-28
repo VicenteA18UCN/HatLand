@@ -8,6 +8,11 @@ public class BGmusic : MonoBehaviour
 
     void Awake()
     {
+        KeepBackgroundMusicMenu();
+    }
+
+    void KeepBackgroundMusicMenu()
+    {
         if(instance != null)
         {
             Destroy(gameObject);

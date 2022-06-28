@@ -51,26 +51,7 @@ public class BossScript : MonoBehaviour
 
         if(distanceToPlayer <= range)
         {
-            if(player.position.x > transform.position.x || player.position.x < transform.position.x )
-            {
-                if(!flipOff)
-                {
-                    if(player.position.x > transform.position.x && enemySpeed < 0)
-                    {   
-                        Flip();
-                    }
-                    else if(player.position.x < transform.position.x && enemySpeed > 0)
-                    {
-                        Flip();
-                    }
-                }
-            }        
-            mustPatrol = false;
-            mustFlip=false;
-            if(!Attacking)
-            {
-                StartCoroutine(Attack());
-            }
+            StartAttack();
         }else
         {
             mustPatrol = true;
@@ -105,6 +86,30 @@ public class BossScript : MonoBehaviour
             //walkSoundEffect.Play();
         }
         
+    }
+
+    void StartAttack()
+    {
+        if(player.position.x > transform.position.x || player.position.x < transform.position.x )
+        {
+            if(!flipOff)
+            {
+                if(player.position.x > transform.position.x && enemySpeed < 0)
+                {   
+                    Flip();
+                }
+                else if(player.position.x < transform.position.x && enemySpeed > 0)
+                {
+                    Flip();
+                }
+            }
+        }        
+        mustPatrol = false;
+        mustFlip=false;
+        if(!Attacking)
+        {
+            StartCoroutine(Attack());
+        }
     }
 
     IEnumerator Attack()

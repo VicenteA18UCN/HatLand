@@ -46,25 +46,9 @@ public class AiPatrol : MonoBehaviour
 
         if(distanceToPlayer <= range)
         {
-            if(player.position.x > transform.position.x && transform.localScale.x < 0 || player.position.x < transform.position.x && transform.localScale.x > 0)
-            {
-                if(!flipOff)
-                {
-                    if(player.position.x > transform.position.x && enemySpeed < 0)
-                    {   
-                        Flip();
-                    }
-                    else if(player.position.x < transform.position.x && enemySpeed > 0)
-                    {
-                        Flip();
-                    }
-                }
-            }
-            
-            mustPatrol = false;
-            mustFlip=false;
-            StartCoroutine(Attack());
-        }else
+            StartAttack();
+        }
+        else
         {
             mustPatrol = true;
         }
@@ -99,6 +83,28 @@ public class AiPatrol : MonoBehaviour
             walkSoundEffect.Play();
         }
         
+    }
+
+    void StartAttack()
+    {
+        if(player.position.x > transform.position.x && transform.localScale.x < 0 || player.position.x < transform.position.x && transform.localScale.x > 0)
+        {
+            if(!flipOff)
+            {
+                if(player.position.x > transform.position.x && enemySpeed < 0)
+                {   
+                    Flip();
+                }
+                else if(player.position.x < transform.position.x && enemySpeed > 0)
+                {
+                    Flip();
+                }
+            }
+        }
+        
+        mustPatrol = false;
+        mustFlip=false;
+        StartCoroutine(Attack());
     }
 
     IEnumerator Attack()

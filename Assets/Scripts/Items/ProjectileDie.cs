@@ -13,12 +13,6 @@ public class ProjectileDie : MonoBehaviour
         StartCoroutine(Timer());        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         GameObject collisonGameObject = other.gameObject;

@@ -177,7 +177,7 @@ MonoBehaviour:
   isDead: 0
   saveGame: 0
   playerRigidBody: {fileID: 2271454577001998147}
-  glideEffect: 0.75
+  glideEffect: 1.25
   animators:
   - {fileID: 9100000, guid: 70bc282fad3a5c74e8eb6c289bc5886b, type: 2}
   - {fileID: 9100000, guid: 50f84d84fc603ad44bcab17259b2202a, type: 2}

@@ -14,11 +14,7 @@ public class VerticalMovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector2(rigidBody.velocity.x,speed*Time.fixedDeltaTime);
-        if(!reset)
-        {
-            StartCoroutine(ResetPlatform());
-        }
+        VerticalMovement();
     }
 
     IEnumerator ResetPlatform()
@@ -27,5 +23,14 @@ public class VerticalMovingPlatform : MonoBehaviour
         yield return new WaitForSeconds(secondsToDisapear);
         reset = false;
         transform.position = startVerticalMovement.position;
+    }
+
+    void VerticalMovement()
+    {
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x,speed*Time.fixedDeltaTime);
+        if(!reset)
+        {
+            StartCoroutine(ResetPlatform());
+        }
     }
 }

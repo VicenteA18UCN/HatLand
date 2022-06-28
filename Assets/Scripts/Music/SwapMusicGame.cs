@@ -8,6 +8,11 @@ public class SwapMusicGame : MonoBehaviour
     public bool isPause = false;
     void Update()
     {
+        StartBackgroundMusicMenu();
+    }
+
+    void StartBackgroundMusicMenu()
+    {
         if (SceneManager.GetActiveScene().name == "Menu")
         {
             BGmusic.instance.GetComponent<AudioSource>().Stop();

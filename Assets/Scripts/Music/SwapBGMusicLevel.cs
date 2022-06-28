@@ -10,6 +10,25 @@ public class SwapBGMusicLevel : MonoBehaviour
 
     void Awake()
     {
+        KeepBackgroundMusicLevel();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        StopBackgroundMusicLevel();
+    }
+
+    void StopBackgroundMusicLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "DeathMenu" || SceneManager.GetActiveScene().name == "Menu")
+        {
+            Destroy(gameObject);
+            levelMusic.Stop();
+        }
+    }
+
+    void KeepBackgroundMusicLevel()
+    {
         if(instance != null)
         {
             Destroy(gameObject);
@@ -20,17 +39,6 @@ public class SwapBGMusicLevel : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "DeathMenu" || SceneManager.GetActiveScene().name == "Menu")
-        {
-            Destroy(gameObject);
-            levelMusic.Stop();
-        }
-    }
 
-    public void PlayBackgroundMusic(){
-        levelMusic.Play();print("play");
-        }
+    public void PlayBackgroundMusic(){levelMusic.Play();}
 }
