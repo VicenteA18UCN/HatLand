@@ -8,16 +8,41 @@ public class SettingsMenu : MonoBehaviour
 {
     public Slider volSlider;
     public AudioMixer audioMixer;
-    public float volumeDef = 0.75f;
+    public float volumeDef;
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
+
+    void OnEnable()
+    {
+        this.VolumeControl();
+    }
     void Start()
     {
-        volSlider.value = PlayerPrefs.GetFloat("volume", volumeDef);
-        audioMixer.SetFloat("volume",Mathf.Log10(PlayerPrefs.GetFloat("volume")));
+        this.ResolutionList();
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume",Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("volume",volume);
+        this.volumeDef = volume;
+    }
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
+    }
+
+    void ResolutionList()
+    {
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
-        
         int currentResolutionIndex = 0;
         List<string> options = new List<string>();
 
@@ -37,22 +62,18 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-
-    public void SetVolume(float volume)
+    
+    void VolumeControl()
     {
-        audioMixer.SetFloat("volume",Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("volume",volume);
-        this.volumeDef = volume;
-    }
-
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-    }
-
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
+        if (!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume",0.75f);
+            volSlider.value = PlayerPrefs.GetFloat("volume");
+        }
+        else
+        {
+            volSlider.value = PlayerPrefs.GetFloat("volume");
+            audioMixer.SetFloat("volume",Mathf.Log10(PlayerPrefs.GetFloat("volume") * 20));
+        }
     }
 }

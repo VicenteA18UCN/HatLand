@@ -7,9 +7,9 @@ using System;
 public class LevelManager : MonoBehaviour
 {
 
-    public static void LoadNextLevel()
+    public static void LoadFirstLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+3); 
+        SceneManager.LoadScene("Nivel1"); 
     }
 
     public static void LoadNextNivel()

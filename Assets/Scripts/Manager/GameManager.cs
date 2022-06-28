@@ -31,6 +31,51 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        this.PlayerComponents();
+    }
+
+    private void Start()
+    {
+        this.PlayerPosition();
+    }
+
+    private void Update() 
+    {
+        this.UpdateDeathCanvas(livesLeft);
+        this.CoinObserver();
+        this.PotionObserver();
+        this.FeatherObserver();
+        if(player.GetComponent<Player>().GetSaveGame())
+        {
+            SaveGame();
+            player.GetComponent<Player>().SetSaveGame(false);
+        }
+        if(player.GetComponent<Player>().GetPlayerStatus())        
+        {
+            this.livesLeft--;
+            CancelInvoke(nameof(CallStopImageFeather));
+            CancelInvoke(nameof(CallStopPowerFeather));
+            this.CallStopPowerFeather();
+            this.CallStopImageFeather();
+            currentTime = 0;
+            this.player.transform.position = this.actualPlayerPosition;
+            RestartFeather();
+            player.GetComponent<Player>().ResetPlayerStatus();
+            this.UpdateDeathCanvas(this.livesLeft);
+            if(livesLeft ==0)
+            {
+                LevelManager.LoadDeathMenu();
+            }
+            
+        }
+        if(timeDown)
+        {
+            this.UpdateTimeCanvas();
+        }
+    }
+
+    public void PlayerComponents()
+    {
         if(!PlayerPrefs.HasKey("Coins"))
         {
             PlayerPrefs.SetInt("Coins",0);
@@ -49,45 +94,13 @@ public class GameManager : MonoBehaviour
         this.coinText.text = coinsAccumulator.ToString();
         this.countdownText.text = "";
         this.currentTime = startingTime;
-        return;
     }
 
-    private void Start()
+    public void PlayerPosition()
     {
         this.initialPlayerPosition = this.player.transform.position;
         this.actualPlayerPosition = this.player.transform.position;
     }
-
-    private void Update() 
-    {
-        this.UpdateDeathCanvas(livesLeft);
-        this.CoinObserver();
-        this.PotionObserver();
-        this.FeatherObserver();
-        if(player.GetComponent<Player>().GetSaveGame())
-        {
-            SaveGame();
-            player.GetComponent<Player>().SetSaveGame(false);
-        }
-        if(player.GetComponent<Player>().GetPlayerStatus())        
-        {
-            this.livesLeft--;
-            this.player.transform.position = this.actualPlayerPosition;
-            RestartFeather();
-            player.GetComponent<Player>().ResetPlayerStatus();
-            this.UpdateDeathCanvas(this.livesLeft);
-            if(livesLeft ==0)
-            {
-                LevelManager.LoadDeathMenu();
-            }
-            
-        }
-        if(timeDown)
-        {
-            this.UpdateTimeCanvas();
-        }
-    }
-
     public void RestartGame()
     {
         this.player.GetComponent<Player>().ResetPlayerStatus();
@@ -227,7 +240,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickPlayGameButton()
     {
-        LevelManager.LoadNextLevel();       
+        LevelManager.LoadFirstLevel();       
     }
 
 

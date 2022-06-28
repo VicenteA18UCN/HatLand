@@ -13,6 +13,11 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject pauseOption;
     void Update()
     {
+        this.PlayerPause();
+    }
+
+    void PlayerPause()
+    {
         if (Input.GetKeyDown(KeyCode.Escape) && !isSettings){
 
             if(isGamePaused){
@@ -24,9 +29,7 @@ public class PauseManager : MonoBehaviour
                 PauseGame();
             }
         }
-
     }
-
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);

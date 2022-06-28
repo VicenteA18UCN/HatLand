@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using System;
 
 
@@ -20,7 +21,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickPlayGameButton()
     {
-        LevelManager.LoadNextLevel();
+        LevelManager.LoadFirstLevel();
         levelMusic.GetComponent<SwapBGMusicLevel>().PlayBackgroundMusic();      
     }
 

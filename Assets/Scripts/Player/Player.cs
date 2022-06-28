@@ -36,29 +36,13 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        this.glideEffect2 = 1;
-        this.animator = GetComponent<Animator>();
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
-        this.playerRigidBody = GetComponent<Rigidbody2D>();
-        this.direction = true;
-        this.newDirection = true;
-        this.directionShoot = 1;
-        this.isMoving = false;
-        this.playOnce = true;
+        this.PlayerComponents();
     }
     // Start is called before the first frame update
     void Start()
     {
         canGlide = false;
-        GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
-        if (skinManager.GetSkinIndex() == 0)
-        {
-            animator.runtimeAnimatorController = animators[0];
-        }
-        if (skinManager.GetSkinIndex() == 1)
-        {
-            animator.runtimeAnimatorController = animators[1];
-        }
+        this.SkinSelector();
 
     }
 
@@ -76,6 +60,18 @@ public class Player : MonoBehaviour
         this.PlayerMovements();
     }
 
+    void PlayerComponents()
+    {
+        this.glideEffect2 = 1;
+        this.animator = GetComponent<Animator>();
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        this.playerRigidBody = GetComponent<Rigidbody2D>();
+        this.direction = true;
+        this.newDirection = true;
+        this.directionShoot = 1;
+        this.isMoving = false;
+        this.playOnce = true;
+    }
     void PlayerMovements()
     {
         if(Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
@@ -247,4 +243,16 @@ public class Player : MonoBehaviour
 
     public void SetSaveGame(bool saveGame){this.saveGame = saveGame;}
 
+    public void SkinSelector()
+    {
+        GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
+        if (skinManager.GetSkinIndex() == 0)
+        {
+            animator.runtimeAnimatorController = animators[0];
+        }
+        if (skinManager.GetSkinIndex() == 1)
+        {
+            animator.runtimeAnimatorController = animators[1];
+    }
+    }
 }

@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class SwapMusic : MonoBehaviour
 {
     public bool isPause = false;
+    public AudioMixer audioMixer;
 
     void Update()
     {
+        audioMixer.SetFloat("volume",Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
         StartBackgroundMusicMenu();
         StopBackgroundMusicMenu();
         
