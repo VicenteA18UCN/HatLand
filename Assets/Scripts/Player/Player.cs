@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private SkinManager skinManager;
-    private float playerVelocity;
-    private float jumpForce;
+    [SerializeField]private float playerVelocity;
+    [SerializeField]private float jumpForce;
     private Animator animator;
     [SerializeField] private bool isDead;
     [SerializeField] private bool saveGame;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D playerRigidBody;
     public static bool canGlide;
+    [SerializeField] private float glideEffect;
+    private float glideEffect2;
     private bool powerFeather;
     [SerializeField] private RuntimeAnimatorController[] animators;
     public Feet feet;
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        this.glideEffect2 = 1;
         this.animator = GetComponent<Animator>();
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.playerRigidBody = GetComponent<Rigidbody2D>();
@@ -46,8 +49,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.playerVelocity = 0.1f;
-        this.jumpForce = 7.8f;
         canGlide = false;
         GetComponent<SpriteRenderer>().sprite = skinManager.GetSelectedSkin().sprite;
         if (skinManager.GetSkinIndex() == 0)
@@ -66,7 +67,6 @@ public class Player : MonoBehaviour
     {
         this.PlayerAnimations();
         this.PlayerJump();
-        this.Gliding();
         PlayerShoot();
         WalkSoundEffect();
     }
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
             isMoving = false;
             jumpSoundEffect.Play();
             playerRigidBody.velocity = new Vector2(0,0);
-            playerRigidBody.AddForce(new Vector3 (0,jumpForce,0),ForceMode2D.Impulse);
+            playerRigidBody.AddForce(new Vector3 (0,jumpForce*glideEffect2,0),ForceMode2D.Impulse);
         }
     }
     void PlayerAnimations()
@@ -130,32 +130,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Gliding()
-    {
-        if(powerFeather){
-            if(canGlide){ 
-            if(Input.GetKey(KeyCode.Space) && feet.isJumping)
-        {
-            Vector2 force = Vector2.up * 0.385f;
-            playerRigidBody.AddForceAtPosition(force, transform.position);
-        }
-        }
-        }
-
-    }
-
-    void CanGlide()
-    {
-        canGlide = true;
-    }
-
     public void StopPowerFeather()
     {
+        this.glideEffect2 = 1;
         this.powerFeather = false;
     }
 
     public void StartPowerFeather()
     {
+        this.glideEffect2 = glideEffect;
         this.powerFeather = true;
     }
 
@@ -173,7 +156,7 @@ public class Player : MonoBehaviour
         }
         if(other.gameObject.CompareTag("OneWayPlatform"))
         {         
-            isMoving=true;
+            isMoving=false;
             canGlide = false;
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
@@ -203,19 +186,11 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isJump",true);
             isMoving = false;
-            if(powerFeather)
-            {
-                Invoke(nameof(CanGlide),1.5f);
-            }
         }
         if(other.gameObject.CompareTag("OneWayPlatform"))
         {            
             animator.SetBool("isJump",true);
             isMoving = false;
-            if(powerFeather)
-            {
-                Invoke(nameof(CanGlide),1.5f);
-            }
         }
     }
 
@@ -262,7 +237,8 @@ public class Player : MonoBehaviour
                 walkSoundEffect.Play();
             }
         }
-        else{
+        else
+        {
             playOnce = true;
             walkSoundEffect.Stop();
         }

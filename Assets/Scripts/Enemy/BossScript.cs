@@ -128,7 +128,7 @@ public class BossScript : MonoBehaviour
                 GameObject newFireWall1 = Instantiate(FireWall,fireWallPos2.position,Quaternion.identity);
                 GameObject newFireWall2 = Instantiate(FireWall,fireWallPos1.position,Quaternion.identity);  
                 StartCoroutine(FireFall());
-                yield return new WaitForSeconds(timeBetweenShoot+2+timeBetweenShoot);
+                yield return new WaitForSeconds(timeBetweenShoot+1+timeBetweenShoot);
                 Destroy(newFireWall1);
                 Destroy(newFireWall2);
 
@@ -153,13 +153,12 @@ public class BossScript : MonoBehaviour
 
     IEnumerator FireFall()
     {
-        print("FireFall");
         rigidBody.velocity = Vector2.zero;
         Instantiate(projectileEffect, platform1.position, Quaternion.identity);
         Instantiate(projectileEffect, platform2.position, Quaternion.identity);
         Instantiate(projectileEffect, platform3.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(timeBetweenShoot+2);
+        yield return new WaitForSeconds(timeBetweenShoot+1);
 
         GameObject fireFall1 = Instantiate(projectileFall,platform1.position,Quaternion.Euler (0f, 0f, -90f));
         GameObject fireFall2 = Instantiate(projectileFall,platform2.position,Quaternion.Euler (0f, 0f, -90f));
@@ -196,7 +195,6 @@ public class BossScript : MonoBehaviour
         if(other.gameObject.CompareTag("Projectile"))
         {
             hp--;
-            print(hp);
             if(hp == 0)
             {
                 Destroy(gameObject);

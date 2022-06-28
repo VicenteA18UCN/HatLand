@@ -109,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 6583575111175692011, guid: 94dfd89edd1303f40b1539e2620db1f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   mustPatrol: 0
   rigidBody: {fileID: 8014449445615595060}
   enemySpeed: 100
-  range: 20
+  range: 10
   timeBetweenAttack: 0
   chaseSpeed: 125
   groundCheckPosition: {fileID: 8014449443828579386}
