@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         {
             this.livesLeft--;
             this.player.transform.position = this.actualPlayerPosition;
+            RestartFeather();
             player.GetComponent<Player>().ResetPlayerStatus();
             this.UpdateDeathCanvas(this.livesLeft);
             if(livesLeft ==0)

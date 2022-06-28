@@ -35924,6 +35924,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1511271766}
     m_Modifications:
+    - target: {fileID: -4312893479644708652, guid: 7f3c3d48bf2d8314c88134fa7e3463d2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4312893479644708652, guid: 7f3c3d48bf2d8314c88134fa7e3463d2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 90e10379e244b4947b0988b6b15b2b1c, type: 2}
     - target: {fileID: 8014449445615595052, guid: 7f3c3d48bf2d8314c88134fa7e3463d2, type: 3}
       propertyPath: m_Name
       value: Enemigo
@@ -38437,7 +38445,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8496123061972114984, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_AssetsPPU
-      value: 109
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_RootOrder
@@ -38493,7 +38501,7 @@ PrefabInstance:
       objectReference: {fileID: 1515812260}
     - target: {fileID: 8496123061972114987, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: offsetSmoothing
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: orthographic
@@ -38501,7 +38509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: field of view
-      value: 25.2
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: near clip plane
@@ -38509,7 +38517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114989, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: orthographic size
-      value: 5.009697
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114991, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_Name
@@ -70407,6 +70415,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8954662, y: 6.239332}
   m_EdgeRadius: 0
+--- !u!1 &1822408216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5537429452691843748, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+  m_PrefabInstance: {fileID: 749836233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879548932
 GameObject:
   m_ObjectHideFlags: 0
@@ -70818,10 +70831,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1727885961166691665, guid: fd3b7ca1bcb17284e91bfa7fb299c94d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3720110935263289511, guid: fd3b7ca1bcb17284e91bfa7fb299c94d, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4028043898163649584, guid: fd3b7ca1bcb17284e91bfa7fb299c94d, type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 1822408216}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd3b7ca1bcb17284e91bfa7fb299c94d, type: 3}
 --- !u!1 &1977015426
