@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]private float jumpForce;
     private Animator animator;
     [SerializeField] private bool isDead;
-    [SerializeField] private bool saveGame;
+    public bool saveGame;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D playerRigidBody;
     public static bool canGlide;
@@ -138,8 +138,6 @@ public class Player : MonoBehaviour
         this.powerFeather = true;
     }
 
-    
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Platform"))
@@ -187,6 +185,14 @@ public class Player : MonoBehaviour
         {            
             animator.SetBool("isJump",true);
             isMoving = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Checkpoint"))
+        {
+            saveGame = true;
         }
     }
 

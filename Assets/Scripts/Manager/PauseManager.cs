@@ -11,6 +11,12 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject pauseMenuUI;
 
     [SerializeField] GameObject pauseOption;
+    private AudioManager audioManager;
+
+    private void OnEnable()
+    {
+        this.audioManager = GetComponent<AudioManager>();
+    }
     void Update()
     {
         this.PlayerPause();
@@ -62,5 +68,10 @@ public class PauseManager : MonoBehaviour
         pauseOption.SetActive(false);
         pauseMenuUI.SetActive(true);
         isSettings = false;
+    }
+
+    public void OnClickSound()
+    {
+        audioManager.PlaySound("Button Sound",0.5f); 
     }
 }

@@ -1734,7 +1734,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1547529856}
-  - component: {fileID: 1547529860}
   - component: {fileID: 1547529859}
   - component: {fileID: 1547529858}
   - component: {fileID: 1547529857}
@@ -1882,18 +1881,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: a7f1c966bd9ccd34aa5e3f39ea79a866, type: 3}
---- !u!114 &1547529860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547529855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 175c39970a28d024eb7da83514ac7feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1547529861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2309,8 +2296,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1547529860}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        - m_Target: {fileID: 1547529861}
+          m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
           m_MethodName: OnClickSound
           m_Mode: 1
           m_Arguments:
@@ -2325,9 +2312,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1547529860}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: OnClickBackMenu
+        - m_Target: {fileID: 1547529858}
+          m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+          m_MethodName: LoadMenu
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

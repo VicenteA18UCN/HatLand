@@ -8,6 +8,7 @@ public class SettingsMenu : MonoBehaviour
 {
     public Slider volSlider;
     public AudioMixer audioMixer;
+    private AudioManager audioManager;
     public float volumeDef;
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
@@ -15,6 +16,7 @@ public class SettingsMenu : MonoBehaviour
     void OnEnable()
     {
         this.VolumeControl();
+        this.audioManager = GetComponent<AudioManager>();
     }
     void Start()
     {
@@ -75,5 +77,10 @@ public class SettingsMenu : MonoBehaviour
             volSlider.value = PlayerPrefs.GetFloat("volume");
             audioMixer.SetFloat("volume",Mathf.Log10(PlayerPrefs.GetFloat("volume") * 20));
         }
+    }
+
+    public void OnClickSound()
+    {
+        audioManager.PlaySound("Button Sound",0.5f); 
     }
 }

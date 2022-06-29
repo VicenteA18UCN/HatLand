@@ -6,7 +6,6 @@ using System;
 
 public class LevelManager : MonoBehaviour
 {
-
     public static void LoadFirstLevel()
     {
         SceneManager.LoadScene("Cinematic"); 
@@ -43,5 +42,5 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("MenuSettings");
     }
-    
+   
 }

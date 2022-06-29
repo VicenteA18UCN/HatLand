@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] feathers;
     [SerializeField] GameObject imageFeather;
     private Vector3 initialPlayerPosition;
-    private Vector3 actualPlayerPosition;
+    public Vector3 actualPlayerPosition;
     private bool isGettedFeather;
     private int livesLeft;
     private int coinsAccumulator;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] TextMeshProUGUI  lifeText;
     private bool timeDown;
+    public static bool Continue;
 
     
     [SerializeField] private AudioSource collettionSoundEffect;
@@ -32,6 +33,11 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         this.PlayerComponents();
+        if (Continue)
+        {
+            Continue = false;
+            ContinuePress();
+        }
     }
 
     private void Start()
@@ -248,6 +254,16 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
         PlayerPrefs.SetInt("Lives", this.livesLeft);
-        this.actualPlayerPosition = this.player.transform.position;
+        PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetFloat("X", this.player.transform.position.x);
+        PlayerPrefs.SetFloat("Y", this.player.transform.position.y);
+        PlayerPrefs.SetFloat("Z", this.player.transform.position.z);
+        
+    }
+
+    public void ContinuePress()
+    {
+        player.transform.position = new Vector3 (PlayerPrefs.GetFloat("X"), PlayerPrefs.GetFloat("Y"), PlayerPrefs.GetFloat("Z"));
+
     }
 }

@@ -24,6 +24,7 @@ public class CinematicManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            CancelInvoke(nameof(PlayGame));
             PlayGame();
         }
     }

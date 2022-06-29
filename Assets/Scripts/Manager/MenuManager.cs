@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using System;
 
 
@@ -9,10 +10,21 @@ public class MenuManager : MonoBehaviour
 {
     private AudioManager audioManager;
     [SerializeField] private GameObject levelMusic;
+    [SerializeField] private GameObject ContinueGame;
 
-    
     private void OnEnable(){
         this.audioManager = GetComponent<AudioManager>();
+    }
+
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("Level"))
+        {
+            ContinueGame.SetActive(true);
+        } else
+        {
+            ContinueGame.SetActive(false);
+        }
     }
     public void OnMouseOverNoButton()
     {
@@ -55,5 +67,11 @@ public class MenuManager : MonoBehaviour
     public void OnClickExit()
     {
         Application.Quit();
+    }
+
+    public void OnClickContinue()
+    {  
+        SceneManager.LoadScene(PlayerPrefs.GetString("Level"));
+        GameManager.Continue = true;
     }
 }

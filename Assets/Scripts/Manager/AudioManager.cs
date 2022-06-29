@@ -9,9 +9,11 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private AudioManager audioManager;
     private void OnEnable(){
 
         this.audioSource = GetComponent<AudioSource>();
+        this.audioManager = GetComponent<AudioManager>();
     }
 
     public void PlaySound(string name){
@@ -72,5 +74,10 @@ public class AudioManager : MonoBehaviour
         }
 
         return -1;
+    }
+
+    public void OnClickSound()
+    {
+        audioManager.PlaySound("Button Sound",0.5f); 
     }
 }
