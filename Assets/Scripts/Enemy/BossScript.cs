@@ -24,6 +24,8 @@ public class BossScript : MonoBehaviour
     private Animator animator;
     private bool mustFlip;
     private bool Attacking;
+    private bool isChasing;
+    private bool isFireBall;
 
     void OnEnable()
     {
@@ -52,6 +54,7 @@ public class BossScript : MonoBehaviour
         if(distanceToPlayer <= range)
         {
             StartAttack();
+            BossAnimations();
         }else
         {
             mustPatrol = true;
@@ -115,12 +118,13 @@ public class BossScript : MonoBehaviour
     IEnumerator Attack()
     {
         Attacking = true;
-        
+        isChasing = true;
         yield return new WaitForSeconds(timeBetweenAttack);
         if(!flipOff)
         {
             rigidBody.velocity = new Vector2(enemySpeed*Time.fixedDeltaTime, rigidBody.velocity.y);
             int randomNumber =  Random.Range(0, 4);
+            isChasing = false;
             for(int i = 0; i< randomNumber;i++)
             {
                 yield return new WaitForSeconds(timeBetweenShoot);
@@ -149,15 +153,18 @@ public class BossScript : MonoBehaviour
     }
     IEnumerator Shoot()
     {
+        animator.SetBool("isFireBall",true);
         yield return new WaitForSeconds(timeBetweenShoot);
         rigidBody.velocity = Vector2.zero;
         GameObject newProjectile = Instantiate(projectile,shootPos.position,Quaternion.identity);
         newProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed *chaseSpeed * Time.fixedDeltaTime,0f);
         newProjectile.transform.localScale = new Vector2(newProjectile.transform.localScale.x*chaseSpeed, newProjectile.transform.localScale.y );
+        animator.SetBool("isFireBall",false);
     }
 
     IEnumerator FireFall()
     {
+        isFireBall = true;
         rigidBody.velocity = Vector2.zero;
         Instantiate(projectileEffect, platform1.position, Quaternion.identity);
         Instantiate(projectileEffect, platform2.position, Quaternion.identity);
@@ -168,6 +175,7 @@ public class BossScript : MonoBehaviour
         GameObject fireFall1 = Instantiate(projectileFall,platform1.position,Quaternion.Euler (0f, 0f, -90f));
         GameObject fireFall2 = Instantiate(projectileFall,platform2.position,Quaternion.Euler (0f, 0f, -90f));
         GameObject fireFall3 = Instantiate(projectileFall,platform3.position,Quaternion.Euler (0f, 0f, -90f));
+        isFireBall = false;
         
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -193,6 +201,30 @@ public class BossScript : MonoBehaviour
             }
 
         }        
+    }
+
+    void BossAnimations()
+    {
+        if(isChasing)
+        {
+            print("isChasing True");
+            animator.SetBool("isChasing",true);
+        }
+        else if(!isChasing)
+        {   
+            print("isChasing false");
+            animator.SetBool("isChasing",false);
+        }
+        if(isFireBall)
+        {
+            print("isCisFireBall True");
+            animator.SetBool("isFireBall",true);
+        }
+        else if(!isFireBall)
+        {
+            print("isFireBall false");
+            animator.SetBool("isFireBall",false);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

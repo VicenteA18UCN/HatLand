@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4742502325031020163}
   - component: {fileID: 5599899416866460678}
   - component: {fileID: 9165717211310665226}
-  - component: {fileID: -6518577028253661933}
   - component: {fileID: 9111914696384118401}
   m_Layer: 0
   m_Name: Projectile Enemy
@@ -149,25 +148,6 @@ MonoBehaviour:
   ProjectileEffect: {fileID: 1913055381608458636, guid: f4d25b80bb777134eb77d79cec98f324, type: 3}
   dieTime: 2
   tag: Enemy
---- !u!95 &-6518577028253661933
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749335379749613656}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6f1b03bc5857a44cada16c0d11692c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!111 &9111914696384118401
 Animation:
   m_ObjectHideFlags: 0

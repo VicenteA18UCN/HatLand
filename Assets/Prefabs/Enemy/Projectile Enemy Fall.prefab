@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73e875fd90d4604dbbbab9a14ed8bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileEffect: {fileID: 1913055381608458636, guid: 6d0c69945edb26a42ba42bc6ce768b95, type: 3}
+  ProjectileEffect: {fileID: 1913055381608458636, guid: 223891a54e1c8334cb1ec590af998503, type: 3}
   dieTime: 2
   tag: Enemy
 --- !u!95 &-6518577028253661933
