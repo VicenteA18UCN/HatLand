@@ -19,7 +19,7 @@ public class SwapMusic : MonoBehaviour
 
     void StopBackgroundMusicMenu()
     {
-        if (SceneManager.GetActiveScene().name == "Nivel1")
+        if (SceneManager.GetActiveScene().name == "Cinematic")
         {
             BGmusic.instance.GetComponent<AudioSource>().Stop();
             this.isPause = true;

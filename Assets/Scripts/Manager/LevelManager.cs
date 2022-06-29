@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public static void LoadFirstLevel()
     {
-        SceneManager.LoadScene("Nivel1"); 
+        SceneManager.LoadScene("Cinematic"); 
     }
 
     public static void LoadNextNivel()
