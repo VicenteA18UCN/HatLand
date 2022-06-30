@@ -42,5 +42,15 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("MenuSettings");
     }
-   
+    
+    public static void RestartBack()
+    {
+        PlayerPrefs.SetInt("Coins",0);
+        PlayerPrefs.SetInt("Lives",3);
+        PlayerPrefs.DeleteKey("Level");
+        PlayerPrefs.DeleteKey("Skin_0");
+        PlayerPrefs.DeleteKey("SelectedSkin");
+        PlayerPrefs.DeleteKey("Skin_1");
+        SceneManager.LoadScene("Menu");
+    }
 }

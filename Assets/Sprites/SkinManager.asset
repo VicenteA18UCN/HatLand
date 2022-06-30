@@ -15,5 +15,5 @@ MonoBehaviour:
   skins:
   - cost: 0
     sprite: {fileID: -6782572774187962364, guid: 122c9d8cb84842b4db8ce73bc35e7542, type: 3}
-  - cost: 1
+  - cost: 20
     sprite: {fileID: -3335585800018451406, guid: b1519ba5aa39e4e4b8cc254e147a1593, type: 3}
