@@ -3104,6 +3104,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1824558730}
     - target: {fileID: 2477982497173496776, guid: 2f97676f9520935469c7280b6b332158, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 2023987706}
+    - target: {fileID: 2477982497173496776, guid: 2f97676f9520935469c7280b6b332158, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 931732971}
@@ -63040,13 +63044,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBackground Music
       objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843748, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 792ba1b21bc53574fb43ff99e0d56876, type: 3}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f57c2ca690cb314f91d5a81dc97c980, type: 3}
+    - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 86da4b25cb56ce34f8e0d924a2fdf89d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+--- !u!1 &2023987706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5537429452691843748, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+  m_PrefabInstance: {fileID: 2023987705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2032283763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8014449445615595053, guid: 7f3c3d48bf2d8314c88134fa7e3463d2, type: 3}
@@ -63507,11 +63539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6052702370438458410, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.26
+      value: 8.236
       objectReference: {fileID: 0}
     - target: {fileID: 6052702370438458410, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.21
+      value: -0.189
       objectReference: {fileID: 0}
     - target: {fileID: 6661924657167933048, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: OutputAudioMixerGroup

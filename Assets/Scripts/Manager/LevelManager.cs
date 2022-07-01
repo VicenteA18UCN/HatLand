@@ -38,6 +38,11 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Lives",3);
     }
 
+    public static void LoadMenuS()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public static void BackMenu()
     {
         SceneManager.LoadScene("Menu");

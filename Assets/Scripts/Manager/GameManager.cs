@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI  lifeText;
     private bool timeDown;
     public static bool Continue;
-
+    [SerializeField] GameObject music;
     
     [SerializeField] private AudioSource collettionSoundEffect;
 
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         this.PlayerComponents();
         if (Continue)
         {
+            music.SetActive(true);
             Continue = false;
             ContinuePress();
         }
@@ -71,8 +72,8 @@ public class GameManager : MonoBehaviour
             RestartFeather();
             player.GetComponent<Player>().ResetPlayerStatus();
             this.UpdateDeathCanvas(this.livesLeft);
-            if(livesLeft ==0)
             RestartKey();
+            if(livesLeft ==0)
             {
                 LevelManager.LoadDeathMenu();
             }

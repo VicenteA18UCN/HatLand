@@ -4679,10 +4679,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBackground Music
       objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 792ba1b21bc53574fb43ff99e0d56876, type: 3}
+    - target: {fileID: 5537429452691843749, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f57c2ca690cb314f91d5a81dc97c980, type: 3}
     - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 86da4b25cb56ce34f8e0d924a2fdf89d, type: 3}
     - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -50,6 +51,15 @@ public class Player : MonoBehaviour
     // Update is called one per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            BossScript.hp--;
+        }
+        if (BossScript.hp==0)
+        {
+            StartCoroutine(Cinematic());
+            BossScript.hp = 10;
+        }
         this.PlayerAnimations();
         this.PlayerJump();
         PlayerShoot();
@@ -72,6 +82,13 @@ public class Player : MonoBehaviour
         this.directionShoot = 1;
         this.isMoving = false;
         this.playOnce = true;
+    }
+
+    IEnumerator Cinematic()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("FinalCinematic");
+
     }
     void PlayerMovements()
     {

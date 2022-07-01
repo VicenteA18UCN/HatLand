@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class BossScript : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] private AudioSource walkSoundEffect;
     [SerializeField] private Transform platform1,platform2,platform3;
     [SerializeField] private GameObject projectileEffect;
-    [SerializeField] private int hp;
+    [SerializeField] public static int hp = 10;
     private float distanceToPlayer;
     private float xCollision;
     private bool flipOff;
@@ -66,7 +66,6 @@ public class BossScript : MonoBehaviour
         {
             mustPatrol = true;
         }
-        
     }
 
     void FixedUpdate()
@@ -143,8 +142,7 @@ public class BossScript : MonoBehaviour
         {
             print("shooting");
             StartCoroutine(StartShoot());
-        }
-            
+        }           
         
     }
 
@@ -272,5 +270,15 @@ public class BossScript : MonoBehaviour
                 Destroy(gameObject);
             }
         }    
+    }
+
+    void FinalCinematic()
+    {
+        SceneManager.LoadScene("FinalCinematic");
+    }
+
+    public static void MenusHp()
+    {
+        hp--;
     }
 }

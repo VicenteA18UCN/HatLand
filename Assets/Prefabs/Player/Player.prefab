@@ -191,6 +191,7 @@ MonoBehaviour:
   walkSoundEffect: {fileID: 2614337336684893756}
   landingSoundEffect: {fileID: 392233271361094064}
   fireBallgSoundEffect: {fileID: 7805530686052551254}
+  textKey: {fileID: 0}
 --- !u!82 &4370447136145782478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -395,7 +396,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 90e10379e244b4947b0988b6b15b2b1c, type: 2}
   m_audioClip: {fileID: 8300000, guid: ec04d66573c7050438ddb923cdef1e41, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0

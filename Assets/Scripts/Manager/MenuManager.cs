@@ -31,22 +31,42 @@ public class MenuManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
         {
+            GameManager.Continue = true;
+            PlayerPrefs.SetFloat("X",-5.45f);
+            PlayerPrefs.SetFloat("Y",-3.12f);
+            PlayerPrefs.SetFloat("Z",0);
             SceneManager.LoadScene("Nivel1");
         }
         if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
         {
+            GameManager.Continue = true;
+            PlayerPrefs.SetFloat("X",8.236f);
+            PlayerPrefs.SetFloat("Y",-0.189f);
+            PlayerPrefs.SetFloat("Z",0);
             SceneManager.LoadScene("Nivel2");
         }
         if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
         {
+            GameManager.Continue = true;
+            PlayerPrefs.SetFloat("X",-5.694f);
+            PlayerPrefs.SetFloat("Y",1.067f);
+            PlayerPrefs.SetFloat("Z",0);
             SceneManager.LoadScene("Nivel3");
         }
         if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
         {
+            GameManager.Continue = true;
+            PlayerPrefs.SetFloat("X",-5.406f);
+            PlayerPrefs.SetFloat("Y",-2.204f);
+            PlayerPrefs.SetFloat("Z",0);
             SceneManager.LoadScene("Nivel4");
         }
         if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
         {
+            GameManager.Continue = true;
+            PlayerPrefs.SetFloat("X",37.3f);
+            PlayerPrefs.SetFloat("Y",-5.3f);
+            PlayerPrefs.SetFloat("Z",0);
             SceneManager.LoadScene("NivelFinal");
         }
 
