@@ -18,7 +18,6 @@ public class HorizontalMovingPlatform : MonoBehaviour
         mustPatrol = true;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(mustPatrol)

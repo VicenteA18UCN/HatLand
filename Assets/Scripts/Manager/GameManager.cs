@@ -252,6 +252,8 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
+        print("save game");
+        actualPlayerPosition = player.transform.position;
         PlayerPrefs.SetInt("Coins", this.coinsAccumulator);
         PlayerPrefs.SetInt("Lives", this.livesLeft);
         PlayerPrefs.SetString("Level", SceneManager.GetActiveScene().name);

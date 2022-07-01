@@ -156,6 +156,10 @@ public class AiPatrol : MonoBehaviour
         if(other.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
-        }    
+        } 
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            Flip();
+        }   
     }
 }
