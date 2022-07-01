@@ -54511,11 +54511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6052702370438458410, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.88
+      value: 8.03
       objectReference: {fileID: 0}
     - target: {fileID: 6052702370438458410, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.37
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6661924657167933048, guid: b094bcd3d5823bc4d8436b6bb27b6bae, type: 3}
       propertyPath: OutputAudioMixerGroup

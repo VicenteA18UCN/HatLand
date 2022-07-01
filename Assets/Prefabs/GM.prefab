@@ -49,6 +49,7 @@ MonoBehaviour:
   potions: []
   feathers: []
   imageFeather: {fileID: 0}
+  actualPlayerPosition: {x: 0, y: 0, z: 0}
   countdownText: {fileID: 0}
   coinText: {fileID: 0}
   lifeText: {fileID: 0}
@@ -62,7 +63,7 @@ AudioSource:
   m_GameObject: {fileID: 2477982497173496777}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 90e10379e244b4947b0988b6b15b2b1c, type: 2}
   m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -292,7 +292,7 @@ AudioSource:
   m_GameObject: {fileID: 8014449445615595052}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 90e10379e244b4947b0988b6b15b2b1c, type: 2}
   m_audioClip: {fileID: 8300000, guid: ec04d66573c7050438ddb923cdef1e41, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
