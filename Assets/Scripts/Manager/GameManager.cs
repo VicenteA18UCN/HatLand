@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] potions;
     [SerializeField] GameObject[] feathers;
     [SerializeField] GameObject imageFeather;
+    [SerializeField] GameObject key;
+    public static bool hasKey;
     private Vector3 initialPlayerPosition;
     public Vector3 actualPlayerPosition;
     private bool isGettedFeather;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         this.CoinObserver();
         this.PotionObserver();
         this.FeatherObserver();
+        this.KeyObserver();
         if(player.GetComponent<Player>().GetSaveGame())
         {
             SaveGame();
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Player>().ResetPlayerStatus();
             this.UpdateDeathCanvas(this.livesLeft);
             if(livesLeft ==0)
+            RestartKey();
             {
                 LevelManager.LoadDeathMenu();
             }
@@ -96,10 +100,12 @@ public class GameManager : MonoBehaviour
         this.coins = GameObject.FindGameObjectsWithTag("Coin");
         this.potions = GameObject.FindGameObjectsWithTag("Potion");
         this.feathers = GameObject.FindGameObjectsWithTag("Feather");
+        this.key = GameObject.FindGameObjectWithTag("Key");
         this.lifeText.text = livesLeft.ToString();
         this.coinText.text = coinsAccumulator.ToString();
         this.countdownText.text = "";
         this.currentTime = startingTime;
+        hasKey = false;
     }
 
     public void PlayerPosition()
@@ -229,6 +235,24 @@ public class GameManager : MonoBehaviour
                 Invoke(nameof(CallStopImageFeather),10f);
             }
         }
+    }
+
+    public void KeyObserver()
+    {
+        if(this.key.GetComponent<Key>().GetStatus())
+        {
+            collettionSoundEffect.Play();
+            this.key.GetComponent<Key>().ResetStatus();
+            this.key.SetActive(false);
+            hasKey = true;
+        }
+    }
+
+    public void RestartKey()
+    {
+        this.key.GetComponent<Key>().ResetStatus();
+        this.key.SetActive(true);
+        hasKey = false;
     }
 
     public void CallStopPowerFeather()

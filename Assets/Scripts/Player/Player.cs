@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource fireBallgSoundEffect;
     private bool isMoving;
     private bool playOnce;
+    [SerializeField] GameObject textKey;
 
     private void OnEnable()
     {
@@ -179,6 +180,18 @@ public class Player : MonoBehaviour
             animator.SetBool("isJump",false);
             animator.SetBool("isWalk",true);
         }
+        if(other.gameObject.CompareTag("FinalLevel"))
+        {
+            if(GameManager.hasKey)
+            {
+                saveGame = true;
+                LevelManager.LoadNextNivel();
+            }
+            else
+            {
+                textKey.SetActive(true);
+            }
+        }
     }
     
     private void OnCollisionExit2D(Collision2D other)
@@ -246,7 +259,7 @@ public class Player : MonoBehaviour
 
     void PlayerShoot()
     {
-        if(Input.GetKeyDown(KeyCode.F) && !isShooting)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !isShooting)
         {
             StartCoroutine(Shoot());
         }

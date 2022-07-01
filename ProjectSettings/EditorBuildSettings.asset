@@ -27,6 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel3.unity
     guid: fcf36280c5eb6b34a835f415a163ebe3
   - enabled: 1
+    path: Assets/Scenes/Nivel4.unity
+    guid: 79593ff3f2345254bb6ef1b7d81b75b2
+  - enabled: 1
+    path: Assets/Scenes/NivelFinal.unity
+    guid: 44109a696a7e56e47a64f7cfa6d2826f
+  - enabled: 1
+    path: Assets/Scenes/FinalCinematic.unity
+    guid: e93f94ca08e981d42a245cd838588fff
+  - enabled: 1
     path: Assets/Scenes/DeathMenu.unity
     guid: b434c387504b514438e5d923bd7cca6c
   m_configObjects: {}

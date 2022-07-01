@@ -8,7 +8,12 @@ public class LevelManager : MonoBehaviour
 {
     public static void LoadFirstLevel()
     {
-        SceneManager.LoadScene("Cinematic"); 
+        SceneManager.LoadScene("Cinematic");
+        PlayerPrefs.SetInt("Coins",0);
+        PlayerPrefs.SetInt("Lives",3); 
+        PlayerPrefs.DeleteKey("X");
+        PlayerPrefs.DeleteKey("Y");
+        PlayerPrefs.DeleteKey("Z");
     }
 
     public static void LoadNextNivel()

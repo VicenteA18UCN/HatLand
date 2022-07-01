@@ -26,6 +26,31 @@ public class MenuManager : MonoBehaviour
             ContinueGame.SetActive(false);
         }
     }
+
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("Nivel1");
+        }
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("Nivel2");
+        }
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("Nivel3");
+        }
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SceneManager.LoadScene("Nivel4");
+        }
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SceneManager.LoadScene("NivelFinal");
+        }
+
+    }
     public void OnMouseOverNoButton()
     {
         return;

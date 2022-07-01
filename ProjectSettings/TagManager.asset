@@ -22,6 +22,8 @@ TagManager:
   - FirePower
   - OneWayPlatform
   - MovingOneWayPlatform
+  - FinalLevel
+  - Key
   layers:
   - Default
   - TransparentFX
