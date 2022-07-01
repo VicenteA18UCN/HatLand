@@ -21,6 +21,7 @@ TagManager:
   - Projectile
   - FirePower
   - OneWayPlatform
+  - MovingOneWayPlatform
   layers:
   - Default
   - TransparentFX

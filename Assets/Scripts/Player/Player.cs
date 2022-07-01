@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
             landingSoundEffect.Play();
         }
         if(other.gameObject.CompareTag("OneWayPlatform"))
-        {         
+        {        
             isMoving=false;
             canGlide = false;
             animator.SetBool("isJump",false);
@@ -172,6 +172,13 @@ public class Player : MonoBehaviour
         {
             saveGame = true;
         }
+        if(other.gameObject.CompareTag("MovingOneWayPlatform"))
+        {
+            isMoving=false;
+            canGlide = false;
+            animator.SetBool("isJump",false);
+            animator.SetBool("isWalk",true);
+        }
     }
     
     private void OnCollisionExit2D(Collision2D other)
@@ -186,7 +193,35 @@ public class Player : MonoBehaviour
             animator.SetBool("isJump",true);
             isMoving = false;
         }
+        if(other.gameObject.CompareTag("MovingOneWayPlatform"))
+        {
+            animator.SetBool("isJump",true);
+            isMoving = false;
+            playerRigidBody.velocity = new Vector2(0,playerRigidBody.velocity.y);
+        }
     }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("MovingOneWayPlatform"))
+        {
+            isMoving=false;
+            canGlide = false;
+            animator.SetBool("isJump",false);
+            animator.SetBool("isWalk",true);
+            if(!Input.GetKeyDown(KeyCode.D) || !Input.GetKeyDown(KeyCode.A)|| !Input.GetKeyDown(KeyCode.Space))
+            {
+                playerRigidBody.velocity = new Vector2(other.gameObject.GetComponent<HorizontalMovingPlatform>().GetVelocity().x,playerRigidBody.velocity.y);
+            }
+            else
+            {
+                playerRigidBody.velocity = new Vector2(0,0);
+            }
+
+            
+        }
+    }    
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -195,6 +230,8 @@ public class Player : MonoBehaviour
             saveGame = true;
         }
     }
+
+
 
     
     public bool GetPlayerStatus()

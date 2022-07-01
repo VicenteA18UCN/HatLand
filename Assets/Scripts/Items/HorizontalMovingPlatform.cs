@@ -19,7 +19,7 @@ public class HorizontalMovingPlatform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(mustPatrol)
         {
@@ -33,7 +33,7 @@ public class HorizontalMovingPlatform : MonoBehaviour
         {
             Flip();
         }
-        rigidBody.velocity = new Vector2(speed*Time.fixedDeltaTime, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(speed*Time.fixedDeltaTime, 0);
     }
 
     void Flip()
@@ -43,5 +43,10 @@ public class HorizontalMovingPlatform : MonoBehaviour
         speed *= -1;
         mustPatrol = true;
         
+    }
+
+    public Vector2 GetVelocity()
+    {
+        return rigidBody.velocity;
     }
 }

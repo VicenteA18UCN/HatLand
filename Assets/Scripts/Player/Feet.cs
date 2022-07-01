@@ -19,6 +19,11 @@ public class Feet : MonoBehaviour
             this.isJumping = false;
             Player.canGlide = false;
         }
+        if(other.gameObject.CompareTag("MovingOneWayPlatform"))
+        {
+            this.isJumping = false;
+            Player.canGlide = false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -28,6 +33,10 @@ public class Feet : MonoBehaviour
             this.isJumping = true;
         }
         if(other.gameObject.CompareTag("OneWayPlatform"))
+        {
+            this.isJumping = true;
+        }
+        if(other.gameObject.CompareTag("MovingOneWayPlatform"))
         {
             this.isJumping = true;
         }

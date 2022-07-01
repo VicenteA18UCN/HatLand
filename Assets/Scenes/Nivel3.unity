@@ -35741,7 +35741,7 @@ Transform:
   - {fileID: 699758637}
   - {fileID: 1626697562}
   m_Father: {fileID: 443468963}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &311228026
 PrefabInstance:
@@ -36082,37 +36082,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6095486563461324654, guid: ace8f4429f9bd2b41bd3577f21492eaf, type: 3}
   m_PrefabInstance: {fileID: 6095486563171024450}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &399358395
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 399358396}
-  m_Layer: 0
-  m_Name: StaticObjects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &399358396
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399358395}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1381230372}
-  m_Father: {fileID: 443468963}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &443468962
 GameObject:
   m_ObjectHideFlags: 0
@@ -36144,7 +36113,6 @@ Transform:
   - {fileID: 1382793041}
   - {fileID: 626130661}
   - {fileID: 1486593485}
-  - {fileID: 399358396}
   - {fileID: 310707935}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -38218,36 +38186,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7823868779798518176, guid: a45b3718be9e0554d8edc95e4f589835, type: 3}
   m_PrefabInstance: {fileID: 1374140365}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1381230371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1381230372}
-  m_Layer: 0
-  m_Name: StartVerticalMovement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1381230372
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381230371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.6, y: -5.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 399358396}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382793040
 GameObject:
   m_ObjectHideFlags: 0
@@ -71435,7 +71373,7 @@ PrefabInstance:
     - target: {fileID: 6095486563461324656, guid: ace8f4429f9bd2b41bd3577f21492eaf, type: 3}
       propertyPath: startVerticalMovement
       value: 
-      objectReference: {fileID: 1381230372}
+      objectReference: {fileID: 0}
     - target: {fileID: 6095486563461324657, guid: ace8f4429f9bd2b41bd3577f21492eaf, type: 3}
       propertyPath: speed
       value: 250
