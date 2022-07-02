@@ -3534,6 +3534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8496123061972114984, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
+      propertyPath: m_UpscaleRT
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8496123061972114986, guid: a250a767767ac8846b6ce04a901ee080, type: 3}
       propertyPath: m_RootOrder
       value: 3
