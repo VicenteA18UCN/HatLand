@@ -2857,6 +2857,7 @@ MonoBehaviour:
   countdownText: {fileID: 724224763}
   coinText: {fileID: 1775370928}
   lifeText: {fileID: 1728705547}
+  music: {fileID: 0}
   collettionSoundEffect: {fileID: 15735410}
 --- !u!4 &1377741218
 Transform:
@@ -2884,7 +2885,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 90e10379e244b4947b0988b6b15b2b1c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3173,7 +3174,7 @@ GameObject:
   - component: {fileID: 1516925560}
   - component: {fileID: 1516925559}
   m_Layer: 5
-  m_Name: E
+  m_Name: D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3218,7 +3219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3823145881913574723, guid: 4338ada537dbdce4ca4fb185111d193f, type: 3}
+  m_Sprite: {fileID: -5622058524487270815, guid: 4338ada537dbdce4ca4fb185111d193f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4693,7 +4694,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 0f57c2ca690cb314f91d5a81dc97c980, type: 3}
     - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 5537429452691843751, guid: cd48a0b84dae5474196077eb643e7f9c, type: 3}
       propertyPath: m_audioClip
